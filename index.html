@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForJob.in - Direct Jobs in Pune</title>
-    <!-- Tailwind CSS for modern, ultra-fast styling -->
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles matching your logo color and shadows */
         .brand-text {
             color: #0b5c9e;
         }
@@ -17,17 +18,30 @@
         .fade-text {
             transition: opacity 0.6s ease-in-out;
         }
-        /* Custom hover effect for brand blue */
         .brand-hover:hover {
             color: #1279ce;
+        }
+        /* Smooth Marquee Styling */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 22s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
         }
     </style>
 </head>
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
 
-    <!-- TOP SECTION: Rotating Micro-Tagline -->
+    <!-- TOP SECTION: Larger Rotating Micro-Tagline -->
     <header class="w-full pt-8 pb-4 text-center px-4">
-        <div id="rotating-tagline" class="text-xs sm:text-sm font-medium tracking-wide text-slate-500 uppercase text-glow fade-text">
+        <div id="rotating-tagline" class="text-lg sm:text-xl font-bold tracking-wide brand-text uppercase text-glow fade-text">
             Direct jobs in Pune. No middlemen.
         </div>
     </header>
@@ -35,11 +49,18 @@
     <!-- MAIN CONTENT AREA -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
         
-        <!-- VIEW 1: Main Category Hashtags -->
+        <!-- VIEW 1: Main Category Hashtags & Marquee Banner -->
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-glow">#forjob.in</h1>
             
-            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
+            <!-- MARQUEE BANNER REPLACING #forjob.in -->
+            <div class="w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg">
+                <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
+                    <span>🚀 Fast-track your career in Pune &nbsp;&bull;&nbsp; Direct employer access &nbsp;&bull;&nbsp; Zero placement fees &nbsp;&bull;&nbsp; Verified listings daily &nbsp;&bull;&nbsp; </span>
+                    <span>🚀 Fast-track your career in Pune &nbsp;&bull;&nbsp; Direct employer access &nbsp;&bull;&nbsp; Zero placement fees &nbsp;&bull;&nbsp; Verified listings daily &nbsp;&bull;&nbsp; </span>
+                </div>
+            </div>
+            
+            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight pt-2">
                 <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
                 <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
                 <button onclick="selectCategory('#Tele_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales</button>
@@ -49,7 +70,7 @@
             </div>
         </div>
 
-        <!-- VIEW 2: Focused Sub-Tier View (Option 2 Slide & Center) -->
+        <!-- VIEW 2: Focused Sub-Tier View -->
         <div id="focus-view" class="w-full hidden flex flex-col items-center text-center space-y-6">
             <!-- Text-only Back Toggle -->
             <button onclick="goBack()" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer mb-2">
@@ -68,7 +89,7 @@
                 </div>
             </div>
 
-            <!-- Tier 3: Contextual Sub-Filter (Dynamically Injected) -->
+            <!-- Tier 3: Contextual Sub-Filter -->
             <div id="tier-3-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4">
                 <p id="tier-3-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
                 <div id="tier-3-options" class="flex flex-col space-y-3 text-xl font-bold tracking-tight">
@@ -79,7 +100,7 @@
 
     </main>
 
-    <!-- FOOTER SECTION (Logo, Employers, Policies) -->
+    <!-- FOOTER SECTION -->
     <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
         <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
             <a href="#" class="brand-hover transition-colors">For Employers</a>
@@ -94,7 +115,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // 1. Rotating Micro-Tagline Logic (Clean Cross-Fade)
+        // Rotating Micro-Tagline Logic
         const taglines = [
             "Direct jobs in Pune. No middlemen.",
             "100% verified employers",
@@ -112,11 +133,10 @@
             }, 600);
         }, 4000);
 
-        // 2. Focused Navigation & Tier Logic
+        // Navigation & Tiers
         let selectedCat = "";
         let selectedExp = "";
 
-        // Categories that require a Tier 3 sub-filter
         const tier3Mapping = {
             "#International_BPO": { label: "Select BPO Process Type", options: ["#Voice", "#Chat_Blended"] },
             "#Tele_Sales": { label: "Select Sales Channel", options: ["#Domestic", "#Inside_Sales"] },
@@ -134,8 +154,6 @@
 
         function handleTier2(expLevel) {
             selectedExp = expLevel;
-            
-            // Check if this category needs Tier 3
             if (tier3Mapping[selectedCat]) {
                 const config = tier3Mapping[selectedCat];
                 document.getElementById("tier-3-label").textContent = config.label;
@@ -152,7 +170,6 @@
 
                 document.getElementById("tier-3-container").classList.remove("hidden");
             } else {
-                // Direct to form if no Tier 3 needed
                 redirectToForm(selectedExp);
             }
         }
