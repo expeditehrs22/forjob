@@ -174,10 +174,17 @@
         }
 
         function redirectToForm(finalSubTag) {
-            const tallyFormUrl = "https://tally.so/r/m6oN4x"; 
+            // Replace these two links with your actual Tally form URLs
+            const fresherFormUrl = "https://tally.so/r/Ek74e2";
+            const experiencedFormUrl = "https://tally.so/r/ZjrpKA";
+            
+            // Automatically routes based on whether they chose Fresher or Experienced
+            const targetUrl = (selectedExp === 'Fresher') ? fresherFormUrl : experiencedFormUrl;
+
             const fullPath = `${selectedCat} -> #${selectedExp} -> ${finalSubTag}`;
             console.log("Candidate Selection Path:", fullPath);
-            window.location.href = tallyFormUrl;
+            
+            window.location.href = targetUrl;
         }
 
         function goBack() {
