@@ -52,7 +52,7 @@
         <!-- VIEW 1: Main Category Hashtags & Marquee Banner -->
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
             
-            <!-- MARQUEE BANNER REPLACING #forjob.in -->
+            <!-- MARQUEE BANNER -->
             <div class="w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg">
                 <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
                     <span>🚀 Fast-track your career in Pune &nbsp;&bull;&nbsp; Direct employer access &nbsp;&bull;&nbsp; Zero placement fees &nbsp;&bull;&nbsp; Verified listings daily &nbsp;&bull;&nbsp; </span>
@@ -133,14 +133,12 @@
             }, 600);
         }, 4000);
 
-        // Navigation & Tiers
+        // Navigation & Tiers (Only International BPO and BD Sales keep Tier 3)
         let selectedCat = "";
         let selectedExp = "";
 
         const tier3Mapping = {
             "#International_BPO": { label: "Select BPO Process Type", options: ["#Voice", "#Chat_Blended"] },
-            "#Tele_Sales": { label: "Select Sales Channel", options: ["#Domestic", "#Inside_Sales"] },
-            "#Tele_Services": { label: "Select Support Focus", options: ["#Inbound_Support", "#Appointment_Setting"] },
             "#BD_Sales": { label: "Select BD Execution", options: ["#Field_Sales", "#Inside_Sales"] }
         };
 
