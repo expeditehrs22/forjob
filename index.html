@@ -53,12 +53,13 @@
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
             
             <!-- MARQUEE BANNER -->
-            <div class="w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg">
-                <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
-                    <span>🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; 🚀 Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-                    <span>🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; 🚀 Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-                </div>
-            </div>
+            <!-- MARQUEE BANNER (Clickable) -->
+<a href="recruiter-directory.html" class="block w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+    <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
+        <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
+        <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
+    </div>
+</a>
             
             <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight pt-2">
                 <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
