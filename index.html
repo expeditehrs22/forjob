@@ -145,6 +145,15 @@
 
         function selectCategory(category) {
             selectedCat = category;
+            
+            // If they click #HR_Recruitment, send them straight to the RAD Recruiter Form instantly
+            if (category === '#HR_Recruitment') {
+                const radFormUrl = "https://tally.so/r/EkooyA"; // Replace with your actual RAD Tally link
+                window.location.href = radFormUrl;
+                return;
+            }
+
+            // Otherwise, proceed to the standard experience split for all other categories
             document.getElementById("main-view").classList.add("hidden");
             document.getElementById("active-category-title").textContent = category;
             document.getElementById("focus-view").classList.remove("hidden");
