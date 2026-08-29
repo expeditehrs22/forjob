@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForJob.in - Direct Jobs in Pune</title>
+    <!-- Tailwind CSS for modern, ultra-fast styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for smooth cross-fades and text shadows */
+        .text-glow {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .fade-text {
+            transition: opacity 0.6s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col justify-between selection:bg-slate-900 selection:text-white font-sans">
+
+    <!-- TOP SECTION: Rotating Micro-Tagline -->
+    <header class="w-full pt-8 pb-4 text-center px-4">
+        <div id="rotating-tagline" class="text-xs sm:text-sm font-medium tracking-wide text-slate-500 uppercase text-glow fade-text">
+            Direct jobs in Pune. No middlemen.
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
+        
+        <!-- VIEW 1: Main Category Hashtags -->
+        <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-glow">#forjob.in</h1>
+            
+            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
+                <button onclick="selectCategory('#HR_Recruitment')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
+                <button onclick="selectCategory('#International_BPO')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
+                <button onclick="selectCategory('#Tele_Sales')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales</button>
+                <button onclick="selectCategory('#Tele_Services')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Services</button>
+                <button onclick="selectCategory('#BD_Sales')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#BD_Sales</button>
+                <button onclick="selectCategory('#Office_Admin')" class="hover:text-slate-600 transition-all transform hover:scale-105 text-glow cursor-pointer">#Office_Admin</button>
+            </div>
+        </div>
+
+        <!-- VIEW 2: Focused Sub-Tier View (Option 2 Slide & Center) -->
+        <div id="focus-view" class="w-full hidden flex flex-col items-center text-center space-y-6">
+            <!-- Text-only Back Toggle -->
+            <button onclick="goBack()" class="text-sm font-medium text-slate-400 hover:text-slate-800 transition-colors tracking-wide cursor-pointer mb-2">
+                ← Back to categories
+            </button>
+
+            <!-- Centered Active Title -->
+            <h2 id="active-category-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow"></h2>
+
+            <!-- Tier 2: Experience Split -->
+            <div class="w-full flex flex-col space-y-4 pt-4">
+                <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Select Experience Level</p>
+                <div class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
+                    <button onclick="handleTier2('Fresher')" class="hover:text-slate-600 transition-all text-glow cursor-pointer">#Fresher</button>
+                    <button onclick="handleTier2('Experienced')" class="hover:text-slate-600 transition-all text-glow cursor-pointer">#Experienced</button>
+                </div>
+            </div>
+
+            <!-- Tier 3: Contextual Sub-Filter (Dynamically Injected) -->
+            <div id="tier-3-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4">
+                <p id="tier-3-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
+                <div id="tier-3-options" class="flex flex-col space-y-3 text-xl font-bold tracking-tight">
+                    <!-- Dynamically populated via JS -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER SECTION (Logo, Employers, Policies) -->
+    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
+        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
+            <a href="#" class="hover:text-slate-900 transition-colors">For Employers</a>
+            <a href="#" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-slate-900 transition-colors">Contact Us</a>
+        </div>
+        <div class="text-xl font-black tracking-tighter text-slate-900 text-glow">
+            FORJOB.IN
+        </div>
+        <p class="text-[11px] text-slate-400">© 2026 ForJob.in. Pune, India.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Rotating Micro-Tagline Logic (Clean Cross-Fade)
+        const taglines = [
+            "Direct jobs in Pune. No middlemen.",
+            "100% verified employers",
+            "We will market your profile"
+        ];
+        let currentIndex = 0;
+        const taglineElement = document.getElementById("rotating-tagline");
+
+        setInterval(() => {
+            taglineElement.style.opacity = 0;
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % taglines.length;
+                taglineElement.textContent = taglines[currentIndex];
+                taglineElement.style.opacity = 1;
+            }, 600);
+        }, 4000);
+
+        // 2. Focused Navigation & Tier Logic
+        let selectedCat = "";
+        let selectedExp = "";
+
+        // Categories that require a Tier 3 sub-filter
+        const tier3Mapping = {
+            "#International_BPO": { label: "Select BPO Process Type", options: ["#Voice", "#Chat_Blended"] },
+            "#Tele_Sales": { label: "Select Sales Channel", options: ["#Domestic", "#Inside_Sales"] },
+            "#Tele_Services": { label: "Select Support Focus", options: ["#Inbound_Support", "#Appointment_Setting"] },
+            "#BD_Sales": { label: "Select BD Execution", options: ["#Field_Sales", "#Inside_Sales"] }
+        };
+
+        function selectCategory(category) {
+            selectedCat = category;
+            document.getElementById("main-view").classList.add("hidden");
+            document.getElementById("active-category-title").textContent = category;
+            document.getElementById("focus-view").classList.remove("hidden");
+            document.getElementById("tier-3-container").classList.add("hidden");
+        }
+
+        function handleTier2(expLevel) {
+            selectedExp = expLevel;
+            
+            // Check if this category needs Tier 3
+            if (tier3Mapping[selectedCat]) {
+                const config = tier3Mapping[selectedCat];
+                document.getElementById("tier-3-label").textContent = config.label;
+                const optionsContainer = document.getElementById("tier-3-options");
+                optionsContainer.innerHTML = "";
+                
+                config.options.forEach(opt => {
+                    const btn = document.createElement("button");
+                    btn.className = "hover:text-slate-600 transition-all text-glow cursor-pointer";
+                    btn.textContent = opt;
+                    btn.onclick = () => redirectToForm(opt);
+                    optionsContainer.appendChild(btn);
+                });
+
+                document.getElementById("tier-3-container").classList.remove("hidden");
+            } else {
+                // Direct to form if no Tier 3 needed (e.g., HR Recruitment, Office Admin)
+                redirectToForm(selectedExp);
+            }
+        }
+
+        function redirectToForm(finalSubTag) {
+            // REPLACE THIS URL with your actual Tally.so form link
+            // You can pass parameters cleanly like: https://tally.so/r/YOUR_ID?cat=...
+            const tallyFormUrl = "https://tally.so/r/m6oN4x"; 
+            
+            // Construct final selection string for your records
+            const fullPath = `${selectedCat} -> #${selectedExp} -> ${finalSubTag}`;
+            console.log("Candidate Selection Path:", fullPath);
+            
+            // Redirect to Tally Form
+            window.location.href = tallyFormUrl;
+        }
+
+        function goBack() {
+            document.getElementById("focus-view").classList.add("hidden");
+            document.getElementById("main-view").classList.remove("hidden");
+            selectedCat = "";
+            selectedExp = "";
+        }
+    </script>
+</body>
+</html>
