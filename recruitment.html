@@ -3,175 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForJob.in - Direct Jobs in Pune</title>
-    <!-- Favicon link -->
+    <title>Recruiter Active Directory (RAD) - ForJob.in</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Tailwind CSS -->
+    
+    <!-- LinkedIn / Social Preview Meta Tags (Open Graph) -->
+    <meta property="og:title" content="Recruiter Active Directory (RAD) | ForJob.in">
+    <meta property="og:description" content="Connect with active recruitment & talent acquisition professionals in Pune for free. Join our hotlist or find recruitment talent fast.">
+    <meta property="og:url" content="https://forjob.in/recruiter-directory.html">
+    <meta property="og:type" content="website">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .brand-text {
-            color: #0b5c9e;
-        }
-        .text-glow {
-            text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15);
-        }
-        .fade-text {
-            transition: opacity 0.6s ease-in-out;
-        }
-        .brand-hover:hover {
-            color: #1279ce;
-        }
+        .brand-text { color: #0b5c9e; }
+        .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
+        .brand-hover:hover { color: #1279ce; }
     </style>
 </head>
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
 
-    <!-- TOP SECTION: Rotating 2-Ad Loop -->
-    <header class="w-full pt-8 pb-4 text-center px-4">
-        <!-- Fixed height wrapper prevents iPhone vertical layout jumps -->
-        <div class="min-h-[85px] flex flex-col items-center justify-center">
-            <div id="rotating-ad-container" class="fade-text flex flex-col items-center space-y-1">
-                <!-- Dynamically populated via script -->
-            </div>
-        </div>
+    <!-- HEADER / BACK -->
+    <header class="w-full pt-8 pb-4 px-6 max-w-4xl mx-auto flex justify-between items-center">
+        <a href="employers.html" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer">
+            ← Back to For Employers
+        </a>
+        <div class="text-sm font-bold tracking-tighter brand-text">FORJOB.IN</div>
     </header>
 
-    <!-- MAIN CONTENT AREA -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
+    <!-- CONTENT -->
+    <main class="flex-grow px-6 max-w-4xl mx-auto w-full py-8 space-y-6">
         
-        <!-- VIEW 1: Main Category Hashtags -->
-        <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center pt-2">
-            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
-                <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
-                <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
-                <button onclick="selectCategory('#Tele_Sales_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales_Services</button>
-                <button onclick="selectCategory('#BD_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#BD_Sales</button>
-                <button onclick="selectCategory('#Reception_Admin')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Reception_Admin</button>
+        <!-- TITLE & SUBTITLE -->
+        <div class="space-y-2 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow">Recruiter Active Directory (RAD)</h1>
+            <p class="text-sm text-slate-600 max-w-xl mx-auto">Explore active recruitment and talent-acquisition professionals open to opportunities across Pune. Employers can connect for free.</p>
+        </div>
+
+        <!-- RECRUITER SIGN-UP CALLOUT BOX -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center space-y-2 shadow-sm">
+            <h2 class="text-base font-bold text-slate-900">Are you a Recruiter looking for new opportunities or clients?</h2>
+            <p class="text-xs sm:text-sm text-slate-600">Get listed on the Recruiter Active Directory (RAD) to gain visibility among hiring managers and employers across Pune.</p>
+            <div class="pt-1">
+                <a href="https://tally.so/r/m6oN4x" target="_blank" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#0b5c9e] text-white font-semibold hover:bg-[#1279ce] transition-all text-xs">
+                    Join the Recruiter Active Directory →
+                </a>
             </div>
         </div>
 
-        <!-- VIEW 2: Focused Sub-Tier View -->
-        <div id="focus-view" class="w-full hidden flex flex-col items-center text-center space-y-6">
-            <!-- Text-only Back Toggle -->
-            <button onclick="goBack()" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer mb-2">
-                ← Back to categories
-            </button>
-
-            <!-- Centered Active Title -->
-            <h2 id="active-category-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow"></h2>
-
-            <!-- Tier 2: Experience Split -->
-            <div class="w-full flex flex-col space-y-4 pt-4">
-                <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Select Experience Level</p>
-                <div class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
-                    <button onclick="handleTier2('#Fresher')" class="brand-hover transition-all text-glow cursor-pointer">#Fresher</button>
-                    <button onclick="handleTier2('#Experienced')" class="brand-hover transition-all text-glow cursor-pointer">#Experienced</button>
-                </div>
-            </div>
-
-            <!-- Tier 3: Contextual Sub-Filter -->
-            <div id="tier-3-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4">
-                <p id="tier-3-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
-                <div id="tier-3-options" class="flex flex-col space-y-3 text-xl font-bold tracking-tight">
-                    <!-- Dynamically populated via JS -->
-                </div>
-            </div>
+        <!-- ACTION BAR (Open in New Window Button) -->
+        <div class="flex justify-between items-center pt-2">
+            <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Live Hotlist Feed</span>
+            <a href="#" target="_blank" id="external-link" class="text-xs font-semibold text-[#0b5c9e] hover:underline flex items-center gap-1">
+                Open Directory in Full Screen ↗
+            </a>
         </div>
 
+        <!-- DATAWRAPPER EMBED CONTAINER -->
+        <div class="w-full bg-slate-50 border border-slate-100 rounded-xl p-4 shadow-sm">
+            <!-- PASTE YOUR DATAWRAPPER EMBED CODE BELOW -->
+            
+            <!-- Replace the placeholder block below with your actual Datawrapper script embed code -->
+            <div class="text-center py-12 text-slate-400 text-sm">
+                [ Paste your Datawrapper embed code here ]
+            </div>
+
+            <!-- PASTE YOUR DATAWRAPPER EMBED CODE ABOVE -->
+        </div>
     </main>
 
-    <!-- FOOTER SECTION -->
-    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
-        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
-            <a href="employers.html" class="brand-hover transition-colors">For Employers</a>
-            <a href="privacy.html" class="brand-hover transition-colors">Privacy Policy</a>
-            <a href="contact.html" class="brand-hover transition-colors">Contact Us</a>
-        </div>
-        <div class="text-xl font-black tracking-tighter text-glow">
-            FORJOB.IN
-        </div>
-        <p class="text-[11px] text-slate-400">© 2026 ForJob.in. Pune, India.</p>
+    <!-- FOOTER -->
+    <footer class="w-full py-8 text-center px-4 border-t border-slate-50 mt-12 text-xs text-slate-400">
+        © 2026 ForJob.in. Pune, India.
     </footer>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // Rotating Ads Data Pool
-        const ads = [
-            {
-                header: "Pune Hiring Drive",
-                subheader: "Direct Employer Connect",
-                linkText: "Register",
-                url: "https://tally.so/r/Ek74e2" // Replace with your Tally link
-            },
-            {
-                header: "Recruiter Active Directory",
-                subheader: "Connect with verified hiring teams",
-                linkText: "Register",
-                url: "https://tally.so/r/EkooyA" // Replace with your RAD Tally link
-            }
-        ];
-
-        let currentAdIndex = 0;
-        const adContainer = document.getElementById("rotating-ad-container");
-
-        function renderAd() {
-            const ad = ads[currentAdIndex];
-            adContainer.style.opacity = 0;
-            
-            setTimeout(() => {
-                adContainer.innerHTML = `
-                    <h3 class="text-sm sm:text-base font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
-                    <p class="text-xs sm:text-sm font-medium text-slate-500">${ad.subheader}</p>
-                    <a href="${ad.url}" class="text-xs font-semibold italic brand-hover transition-colors pt-0.5 cursor-pointer">${ad.linkText} →</a>
-                `;
-                adContainer.style.opacity = 1;
-            }, 500);
-        }
-
-        // Initialize first ad and start loop every 4.5 seconds
-        renderAd();
-        setInterval(() => {
-            currentAdIndex = (currentAdIndex + 1) % ads.length;
-            renderAd();
-        }, 4500);
-
-        // Navigation & Tiers Logic
-        let selectedCat = "";
-        let selectedExp = "";
-
-        function selectCategory(category) {
-            selectedCat = category;
-            
-            if (category === '#HR_Recruitment') {
-                const radFormUrl = "https://tally.so/r/EkooyA";
-                window.location.href = radFormUrl;
-                return;
-            }
-
-            document.getElementById("main-view").classList.add("hidden");
-            document.getElementById("active-category-title").textContent = category;
-            document.getElementById("focus-view").classList.remove("hidden");
-            document.getElementById("tier-3-container").classList.add("hidden");
-        }
-
-        function handleTier2(expLevel) {
-            selectedExp = expLevel;
-            redirectToForm(selectedExp);
-        }
-
-        function redirectToForm(finalSubTag) {
-            const fresherFormUrl = "https://tally.so/r/Ek74e2";
-            const experiencedFormUrl = "https://tally.so/r/ZjrpKA";
-            
-            const targetUrl = (selectedExp === '#Fresher') ? fresherFormUrl : experiencedFormUrl;
-            window.location.href = targetUrl;
-        }
-
-        function goBack() {
-            document.getElementById("focus-view").classList.add("hidden");
-            document.getElementById("main-view").classList.remove("hidden");
-            selectedCat = "";
-            selectedExp = "";
-        }
-    </script>
 </body>
 </html>
