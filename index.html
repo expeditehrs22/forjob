@@ -21,49 +21,26 @@
         .brand-hover:hover {
             color: #1279ce;
         }
-        /* Smooth Marquee Styling */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 100%;
-        }
-        .marquee-track {
-            display: inline-block;
-            animation: marquee 22s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
     </style>
 </head>
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
 
-    <!-- TOP SECTION: Dynamic Google Sheet Multi-Pill Container -->
+    <!-- TOP SECTION: Rotating 2-Ad Loop -->
     <header class="w-full pt-8 pb-4 text-center px-4">
-        <div id="dynamic-pills-container" class="flex flex-col items-center space-y-2 transition-opacity duration-500">
-            <!-- Fallback Pill so the screen is never blank -->
-            <a href="https://tally.so/r/Ek74e2" class="text-xs sm:text-sm font-semibold tracking-wide text-slate-700 uppercase bg-slate-50 border border-slate-200 hover:border-[#0b5c9e] hover:text-[#0b5c9e] py-2 px-4 rounded-full shadow-sm inline-block transition-all cursor-pointer">
-                🟢 Pune Hiring Drive: Direct Employer Connect • Click to Register
-            </a>
+        <!-- Fixed height wrapper prevents iPhone vertical layout jumps -->
+        <div class="min-h-[85px] flex flex-col items-center justify-center">
+            <div id="rotating-ad-container" class="fade-text flex flex-col items-center space-y-1">
+                <!-- Dynamically populated via script -->
+            </div>
         </div>
     </header>
 
     <!-- MAIN CONTENT AREA -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
         
-        <!-- VIEW 1: Main Category Hashtags & Marquee Banner -->
-        <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
-            
-            <!-- MARQUEE BANNER -->
-            <a href="recruiter-directory.html" class="block w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
-                <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
-                    <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-                    <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-                </div>
-            </a>
-            
-            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight pt-2">
+        <!-- VIEW 1: Main Category Hashtags -->
+        <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center pt-2">
+            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
                 <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
                 <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
                 <button onclick="selectCategory('#Tele_Sales_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales_Services</button>
@@ -117,37 +94,49 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        let selectedCat = "";
-        let selectedExp = "";
-
-        // Fetch multiple dynamic pills from Google Sheet web app (/exec URL required)
-        async function fetchBanners() {
-            try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbwF713zkJIpDAACMzYQ6pmKeXI6xyGn1hb9-OSjvUC8zXYh03TJ6xYMOnHcpx4FkM3g/exec");
-                const banners = await response.json(); 
-                
-                const container = document.getElementById("dynamic-pills-container");
-
-                if (Array.isArray(banners) && banners.length > 0) {
-                    container.innerHTML = ""; // Clear fallback and load live data fresh
-                    
-                    banners.forEach(item => {
-                        if (item.text && item.link) {
-                            const pill = document.createElement("a");
-                            pill.href = item.link;
-                            pill.className = "text-xs sm:text-sm font-semibold tracking-wide text-slate-700 uppercase bg-slate-50 border border-slate-200 hover:border-[#0b5c9e] hover:text-[#0b5c9e] py-2 px-4 rounded-full shadow-sm inline-block transition-all cursor-pointer";
-                            pill.textContent = item.text;
-                            container.appendChild(pill);
-                        }
-                    });
-                }
-            } catch (error) {
-                console.log("Using default fallback banner text due to fetch error or missing URL.");
+        // Rotating Ads Data Pool
+        const ads = [
+            {
+                header: "Pune Hiring Drive",
+                subheader: "Direct Employer Connect",
+                linkText: "Register",
+                url: "https://tally.so/r/Ek74e2" // Replace with your Tally link
+            },
+            {
+                header: "Recruiter Active Directory",
+                subheader: "Connect with verified hiring teams",
+                linkText: "Register",
+                url: "https://tally.so/r/EkooyA" // Replace with your RAD Tally link
             }
+        ];
+
+        let currentAdIndex = 0;
+        const adContainer = document.getElementById("rotating-ad-container");
+
+        function renderAd() {
+            const ad = ads[currentAdIndex];
+            adContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                adContainer.innerHTML = `
+                    <h3 class="text-sm sm:text-base font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
+                    <p class="text-xs sm:text-sm font-medium text-slate-500">${ad.subheader}</p>
+                    <a href="${ad.url}" class="text-xs font-semibold italic brand-hover transition-colors pt-0.5 cursor-pointer">${ad.linkText} →</a>
+                `;
+                adContainer.style.opacity = 1;
+            }, 500);
         }
 
-        // Run immediately on page load
-        fetchBanners();
+        // Initialize first ad and start loop every 4.5 seconds
+        renderAd();
+        setInterval(() => {
+            currentAdIndex = (currentAdIndex + 1) % ads.length;
+            renderAd();
+        }, 4500);
+
+        // Navigation & Tiers Logic
+        let selectedCat = "";
+        let selectedExp = "";
 
         function selectCategory(category) {
             selectedCat = category;
