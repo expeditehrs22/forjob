@@ -123,7 +123,7 @@
         // Fetch multiple dynamic pills from Google Sheet web app (/exec URL required)
         async function fetchBanners() {
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbzd0K5kAIsku2FKE7f8NLpdc4G5fkwG6SYuaB18FpLFxRqjde6Q830J0FHiT3F9MIoS/exec");
+                const response = await fetch("https://script.google.com/macros/s/AKfycbwF713zkJIpDAACMzYQ6pmKeXI6xyGn1hb9-OSjvUC8zXYh03TJ6xYMOnHcpx4FkM3g/exec");
                 const banners = await response.json(); 
                 
                 const container = document.getElementById("dynamic-pills-container");
