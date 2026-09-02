@@ -120,32 +120,35 @@
         // Navigation & Tiers
         let selectedCat = "";
         let selectedExp = "";
-        let currentDynamicLink = "#";
+let currentDynamicLink = "#";
 
-        // Fetch live text from your secure Google Apps Script API on page load
+        // Fetch live text directly from your Google Sheet web app
         async function fetchBanner() {
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbzQJF6bgiyzbLkilZAhWJ7g5u1XGsoV-ZT3-PgaNtLqBGUdaovEIRnDXwMUCBUazT09/exec");
+                const response = await fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE");
                 const data = await response.json();
                 
-                const pillElement = document.getElementById("dynamic-pill-link");
-                pillElement.textContent = data.text;
-                currentDynamicLink = data.link;
+                if (data.text && data.link) {
+                    const pillElement = document.getElementById("dynamic-pill-link");
+                    pillElement.textContent = data.text;
+                    currentDynamicLink = data.link;
+                    
+                    // Fade the pill smoothly into view once the sheet data is loaded
+                    pillElement.classList.remove("opacity-0");
+                }
             } catch (error) {
-                // Fallback text if fetch fails
-                document.getElementById("dynamic-pill-link").textContent = "🟢 Pune Hiring Drive: Direct Employer Connect • Click to Register";
-                currentDynamicLink = "https://tally.so/r/Ek74e2";
+                console.error("Error fetching sheet banner:", error);
             }
         }
 
         function handleDynamicClick(event) {
             event.preventDefault();
-            if (currentDynamicLink) {
+            if (currentDynamicLink && currentDynamicLink !== "#") {
                 window.location.href = currentDynamicLink;
             }
         }
 
-        // Run on load
+        // Run immediately on page load
         fetchBanner();
 
         function selectCategory(category) {
