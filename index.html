@@ -53,21 +53,19 @@
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center">
             
             <!-- MARQUEE BANNER -->
-            <!-- MARQUEE BANNER (Clickable) -->
-<a href="recruiter-directory.html" class="block w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
-    <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
-        <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-        <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
-    </div>
-</a>
+            <a href="recruiter-directory.html" class="block w-full bg-slate-50 border-y border-slate-100 py-3 my-2 marquee-container shadow-sm rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                <div class="marquee-track text-sm sm:text-base font-semibold tracking-wider text-slate-600 uppercase">
+                    <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
+                    <span>🚀 🚀 Fast-track your career in HR/Recruitment &nbsp;&bull;&nbsp; Join our Recruiter Active Directory &nbsp;&bull;&nbsp; </span>
+                </div>
+            </a>
             
             <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight pt-2">
                 <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
                 <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
-                <button onclick="selectCategory('#Tele_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales</button>
-                <button onclick="selectCategory('#Tele_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Services</button>
+                <button onclick="selectCategory('#Tele_Sales_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales_Services</button>
                 <button onclick="selectCategory('#BD_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#BD_Sales</button>
-                <button onclick="selectCategory('#Office_Admin')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Office_Admin</button>
+                <button onclick="selectCategory('#Reception_Admin')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Reception_Admin</button>
             </div>
         </div>
 
@@ -85,8 +83,8 @@
             <div class="w-full flex flex-col space-y-4 pt-4">
                 <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Select Experience Level</p>
                 <div class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
-                    <button onclick="handleTier2('Fresher')" class="brand-hover transition-all text-glow cursor-pointer">#Fresher</button>
-                    <button onclick="handleTier2('Experienced')" class="brand-hover transition-all text-glow cursor-pointer">#Experienced</button>
+                    <button onclick="handleTier2('#Fresher')" class="brand-hover transition-all text-glow cursor-pointer">#Fresher</button>
+                    <button onclick="handleTier2('#Experienced')" class="brand-hover transition-all text-glow cursor-pointer">#Experienced</button>
                 </div>
             </div>
 
@@ -134,21 +132,16 @@
             }, 600);
         }, 4000);
 
-        // Navigation & Tiers (Only International BPO and BD Sales keep Tier 3)
+        // Navigation & Tiers
         let selectedCat = "";
         let selectedExp = "";
-
-        const tier3Mapping = {
-            "#International_BPO": { label: "Select BPO Process Type", options: ["#Voice", "#Chat_Blended"] },
-            "#BD_Sales": { label: "Select BD Execution", options: ["#Field_Sales", "#Inside_Sales"] }
-        };
 
         function selectCategory(category) {
             selectedCat = category;
             
             // If they click #HR_Recruitment, send them straight to the RAD Recruiter Form instantly
             if (category === '#HR_Recruitment') {
-                const radFormUrl = "https://tally.so/r/EkooyA"; // Replace with your actual RAD Tally link
+                const radFormUrl = "YOUR_RAD_TALLY_FORM_LINK"; 
                 window.location.href = radFormUrl;
                 return;
             }
@@ -162,35 +155,18 @@
 
         function handleTier2(expLevel) {
             selectedExp = expLevel;
-            if (tier3Mapping[selectedCat]) {
-                const config = tier3Mapping[selectedCat];
-                document.getElementById("tier-3-label").textContent = config.label;
-                const optionsContainer = document.getElementById("tier-3-options");
-                optionsContainer.innerHTML = "";
-                
-                config.options.forEach(opt => {
-                    const btn = document.createElement("button");
-                    btn.className = "brand-hover transition-all text-glow cursor-pointer";
-                    btn.textContent = opt;
-                    btn.onclick = () => redirectToForm(opt);
-                    optionsContainer.appendChild(btn);
-                });
-
-                document.getElementById("tier-3-container").classList.remove("hidden");
-            } else {
-                redirectToForm(selectedExp);
-            }
+            redirectToForm(selectedExp);
         }
 
         function redirectToForm(finalSubTag) {
-            // Replace these two links with your actual Tally form URLs
-            const fresherFormUrl = "https://tally.so/r/Ek74e2";
-            const experiencedFormUrl = "https://tally.so/r/ZjrpKA";
+            // Replace these two placeholders with your actual Tally form URLs
+            const fresherFormUrl = "YOUR_FRESHER_TALLY_FORM_LINK";
+            const experiencedFormUrl = "YOUR_EXPERIENCED_TALLY_FORM_LINK";
             
-            // Automatically routes based on whether they chose Fresher or Experienced
-            const targetUrl = (selectedExp === 'Fresher') ? fresherFormUrl : experiencedFormUrl;
+            // Automatically routes based on whether they chose #Fresher or #Experienced
+            const targetUrl = (selectedExp === '#Fresher') ? fresherFormUrl : experiencedFormUrl;
 
-            const fullPath = `${selectedCat} -> #${selectedExp} -> ${finalSubTag}`;
+            const fullPath = `${selectedCat} -> ${selectedExp}`;
             console.log("Candidate Selection Path:", fullPath);
             
             window.location.href = targetUrl;
