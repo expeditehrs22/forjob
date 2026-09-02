@@ -93,20 +93,21 @@
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT LOGIC -->
     <script>
-        // Rotating Ads Data Pool
+        // Rotating Ads Data Pool (Larger text styling applied below)
         const ads = [
             {
                 header: "Pune Hiring Drive",
                 subheader: "Direct Employer Connect",
                 linkText: "Register",
-                url: "https://tally.so/r/Ek74e2" // Replace with your Tally link
+                url: "https://tally.so/r/Ek74e2"
             },
             {
                 header: "Recruiter Active Directory",
                 subheader: "Connect with verified hiring teams",
                 linkText: "Register",
-                url: "https://tally.so/r/EkooyA" // Replace with your RAD Tally link
+                url: "https://tally.so/r/EkooyA"
             }
         ];
 
@@ -119,9 +120,9 @@
             
             setTimeout(() => {
                 adContainer.innerHTML = `
-                    <h3 class="text-sm sm:text-base font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
-                    <p class="text-xs sm:text-sm font-medium text-slate-500">${ad.subheader}</p>
-                    <a href="${ad.url}" class="text-xs font-semibold italic brand-hover transition-colors pt-0.5 cursor-pointer">${ad.linkText} →</a>
+                    <h3 class="text-base sm:text-lg font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
+                    <p class="text-sm sm:text-base font-medium text-slate-600">${ad.subheader}</p>
+                    <a href="${ad.url}" class="text-xs sm:text-sm font-semibold italic brand-hover transition-colors pt-1 cursor-pointer">${ad.linkText} →</a>
                 `;
                 adContainer.style.opacity = 1;
             }, 500);
