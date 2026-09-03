@@ -3,74 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruiter Active Directory (RAD) - ForJob.in</title>
+    <title>Recruiter Active Directory | ForJob.in</title>
+    <!-- Favicon link -->
     <link rel="icon" type="image/png" href="favicon.png">
-    
-<!-- Open Graph / LinkedIn Meta Tags -->
-<meta property="og:title" content="Recruiter Active Directory | ForJob.in" />
-<meta property="og:description" content="Connect directly with verified employers and hiring teams in Pune. Zero middlemen." />
-<meta property="og:image" content="www.forjob.in/your-preview-image.jpg" />
-<meta property="og:url" content="www.forjob.in/recruitment.html" />
-<meta property="og:type" content="website" />
-    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .brand-text { color: #0b5c9e; }
-        .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
+        .brand-bg { background-color: #0b5c9e; }
+        .brand-border { border-color: #0b5c9e; }
         .brand-hover:hover { color: #1279ce; }
+        .brand-btn-hover:hover { background-color: #1279ce; }
     </style>
 </head>
-<body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
-
-    <!-- HEADER / BACK -->
-    <header class="w-full pt-8 pb-4 px-6 max-w-4xl mx-auto flex justify-between items-center">
-        <a href="https://forjob.in/" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer">
-            ← To Home
-        </a>
-        <div class="text-sm font-bold tracking-tighter brand-text">FORJOB.IN</div>
-    </header>
-
-    <!-- CONTENT -->
-    <main class="flex-grow px-6 max-w-4xl mx-auto w-full py-8 space-y-6">
+<body class="bg-slate-50 text-slate-800 p-4 sm:p-6 font-sans">
+    <div class="max-w-5xl mx-auto">
         
-        <!-- TITLE & SUBTITLE -->
-        <div class="space-y-2 text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow">Recruiter Active Directory (RAD)</h1>
-            <p class="text-sm text-slate-600 max-w-xl mx-auto">Explore active recruitment and talent-acquisition professionals open to opportunities across Pune. Employers can connect for free.</p>
-        </div>
-
-        <!-- RECRUITER SIGN-UP CALLOUT BOX -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center space-y-2 shadow-sm">
-            <h2 class="text-base font-bold text-slate-900">Are you a Recruiter looking for new opportunities or clients?</h2>
-            <p class="text-xs sm:text-sm text-slate-600">Get listed on the Recruiter Active Directory (RAD) to gain visibility among hiring managers and employers across Pune.</p>
-            <div class="pt-1">
-                <a href="https://tally.so/r/m6oN4x" target="_blank" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#0b5c9e] text-white font-semibold hover:bg-[#1279ce] transition-all text-xs">
-                    Join the Recruiter Active Directory →
+        <!-- HEADER SECTION -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <img src="favicon.png" alt="Logo" class="w-14 h-14 rounded-lg object-contain border border-slate-100">
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Recruiter Active Directory</h1>
+                    <p class="text-sm text-slate-500 mt-0.5">Filter active recruitment professionals by location and experience.</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
+                <p class="text-xs sm:text-sm text-slate-600 max-w-xs">
+                    Are you a recruiter? Get listed to expand your network and close positions faster.
+                </p>
+                <a href="https://tally.so/r/EkooyA" target="_blank" 
+                   class="brand-bg brand-btn-hover text-white font-medium px-5 py-2.5 rounded-lg shadow-sm text-sm transition-colors whitespace-nowrap">
+                    Sign Up Now &rarr;
                 </a>
             </div>
         </div>
+        
+        <!-- FILTER CONTROLS BAR -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Search Keyword</label>
+                <input type="text" id="searchInput" placeholder="Search name or keywords..." 
+                    class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
+            </div>
 
-        <!-- ACTION BAR (Open in New Window Button) -->
-        <div class="flex justify-between items-center pt-2">
-            <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Live Hotlist Feed</span>
-            <a href="#" target="_blank" id="external-link" class="text-xs font-semibold text-[#0b5c9e] hover:underline flex items-center gap-1">
-                Open Directory in Full Screen ↗
-            </a>
+            <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Filter by Town</label>
+                <select id="townFilter" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
+                    <option value="">All Towns (Hinjewadi, Kharadi...)</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Filter by Experience</label>
+                <select id="expFilter" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
+                    <option value="">All Experience Levels</option>
+                    <option value="0-3">0 - 3 Years</option>
+                    <option value="3-5">3 - 5 Years</option>
+                    <option value="5-10">5 - 10 Years</option>
+                    <option value="11+">11+ Years</option>
+                </select>
+            </div>
         </div>
 
-        <!-- DATAWRAPPER EMBED CONTAINER -->
-        <div class="w-full bg-slate-50 border border-slate-100 rounded-xl p-4 shadow-sm">
-            <!-- PASTE YOUR DATAWRAPPER EMBED CODE BELOW -->
+        <!-- Table Count Indicator -->
+        <div class="flex justify-between items-center mb-3 px-1">
+            <span id="resultCount" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Loading entries...</span>
+            <a href="index.html" class="text-xs font-semibold brand-text brand-hover">&larr; Back to ForJob.in</a>
+        </div>
+
+        <!-- Table -->
+        <div class="bg-white rounded-lg shadow overflow-hidden border border-slate-200">
+            <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-100">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Experience</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Town</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">City</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Profile</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200" id="tableBody">
+                    <tr>
+                        <td colspan="5" class="px-6 py-8 text-center text-slate-400">Loading directory...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allData = [];
+
+        async function loadDirectory() {
+            try {
+                const response = await fetch('data.json');
+                allData = await response.json();
+                populateTownDropdown(allData);
+                renderTable(allData);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('tableBody').innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-rose-500">Error loading data.json file from repository.</td></tr>`;
+                document.getElementById('resultCount').textContent = "Error loading data";
+            }
+        }
+
+        function populateTownDropdown(data) {
+            const townSelect = document.getElementById('townFilter');
+            const towns = [...new Set(data.map(row => row.Town).filter(Boolean))].sort();
             
-<iframe src="https://forjobin.github.io/recruiter-directory/" width="100%" height="800px" style="border:none; border-radius: 12px;"></iframe>
+            towns.forEach(town => {
+                const option = document.createElement('option');
+                option.value = town;
+                option.textContent = town;
+                townSelect.appendChild(option);
+            });
+        }
 
-            <!-- PASTE YOUR DATAWRAPPER EMBED CODE ABOVE -->
-        </div>
-    </main>
+        function renderTable(data) {
+            const tableBody = document.getElementById('tableBody');
+            const countLabel = document.getElementById('resultCount');
+            tableBody.innerHTML = '';
 
-    <!-- FOOTER -->
-    <footer class="w-full py-8 text-center px-4 border-t border-slate-50 mt-12 text-xs text-slate-400">
-        © 2026 ForJob.in. Pune, India.
-    </footer>
+            countLabel.textContent = `Showing ${data.length} active recruiter${data.length === 1 ? '' : 's'}`;
+
+            if (data.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-slate-400">No matching entries found.</td></tr>`;
+                return;
+            }
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition-colors';
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-medium text-slate-900">${escapeHtml(row.name || '')}</td>
+                    <td class="px-6 py-4 text-slate-600">${escapeHtml(String(row.experience || ''))} yrs</td>
+                    <td class="px-6 py-4 text-slate-600"><span class="bg-blue-50 text-[#0b5c9e] px-2.5 py-1 rounded text-xs font-medium">${escapeHtml(row.Town || '')}</span></td>
+                    <td class="px-6 py-4 text-slate-600">${escapeHtml(row.City || '')}</td>
+                    <td class="px-6 py-4"><a href="${escapeHtml(row.linkedin || '#')}" target="_blank" class="brand-text brand-hover font-medium text-sm inline-flex items-center gap-1">LinkedIn &rarr;</a></td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        function filterData() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            const selectedTown = document.getElementById('townFilter').value;
+            const selectedExpRange = document.getElementById('expFilter').value;
+
+            const filtered = allData.filter(row => {
+                const matchesSearch = !searchQuery || Object.values(row).some(val => 
+                    String(val).toLowerCase().includes(searchQuery)
+                );
+
+                const matchesTown = !selectedTown || row.Town === selectedTown;
+
+                let matchesExp = true;
+                if (selectedExpRange) {
+                    // Extract first set of digits found in the experience string (e.g. "5+ yrs" -> 5)
+                    const expMatch = String(row.experience).match(/\d+/);
+                    const expNum = expMatch ? parseInt(expMatch[0], 10) : NaN;
+
+                    if (!isNaN(expNum)) {
+                        if (selectedExpRange === "0-3") matchesExp = (expNum >= 0 && expNum <= 3);
+                        else if (selectedExpRange === "3-5") matchesExp = (expNum >= 3 && expNum <= 5);
+                        else if (selectedExpRange === "5-10") matchesExp = (expNum >= 5 && expNum <= 10);
+                        else if (selectedExpRange === "11+") matchesExp = (expNum >= 11);
+                    } else {
+                        matchesExp = false;
+                    }
+                }
+
+                return matchesSearch && matchesTown && matchesExp;
+            });
+
+            renderTable(filtered);
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterData);
+        document.getElementById('townFilter').addEventListener('change', filterData);
+        document.getElementById('expFilter').addEventListener('change', filterData);
+
+        loadDirectory();
+    </script>
 </body>
 </html>
