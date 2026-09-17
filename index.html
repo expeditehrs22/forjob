@@ -38,14 +38,18 @@
     <!-- MAIN CONTENT AREA -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
         
-        <!-- VIEW 1: Main Category Hashtags (Dynamically Loaded from Google Sheet) -->
+        <!-- VIEW 1: Main Category Hashtags -->
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center pt-2">
-            <div id="dynamic-ctas-container" class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
-                <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold animate-pulse">Loading categories...</p>
+            <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
+                <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
+                <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
+                <button onclick="selectCategory('#Tele_Sales_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales_Services</button>
+                <button onclick="selectCategory('#BD_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#BD_Sales</button>
+                <button onclick="selectCategory('#Reception_Admin')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Reception_Admin</button>
             </div>
         </div>
 
-        <!-- VIEW 2: Focused Sub-Tier / Wizard View -->
+        <!-- VIEW 2: Focused Sub-Tier View -->
         <div id="focus-view" class="w-full hidden flex flex-col items-center text-center space-y-6">
             <!-- Text-only Back Toggle -->
             <button onclick="goBack()" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer mb-2">
@@ -55,32 +59,21 @@
             <!-- Centered Active Title -->
             <h2 id="active-category-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow"></h2>
 
-            <!-- Dynamic Step Container -->
-            <div id="wizard-step-container" class="w-full flex flex-col space-y-4 pt-4">
-                <p id="wizard-step-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
-                <div id="wizard-options-container" class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
-                    <!-- Dynamically populated via JS -->
+            <!-- Tier 2: Experience Split -->
+            <div class="w-full flex flex-col space-y-4 pt-4">
+                <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Select Experience Level</p>
+                <div class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
+                    <button onclick="handleTier2('#Fresher')" class="brand-hover transition-all text-glow cursor-pointer">#Fresher</button>
+                    <button onclick="handleTier2('#Experienced')" class="brand-hover transition-all text-glow cursor-pointer">#Experienced</button>
                 </div>
             </div>
 
-            <!-- FINAL STEP: Contact Capture Box -->
-            <div id="contact-step-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4 text-left bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <p class="text-xs uppercase tracking-widest text-slate-500 font-bold text-center">Almost Done! Where should employers reach you?</p>
-                <form id="lead-form" onsubmit="submitLead(event)" class="space-y-4 pt-2">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Full Name</label>
-                        <input type="text" id="userName" required placeholder="Enter your full name" 
-                            class="w-full p-3 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">WhatsApp Number</label>
-                        <input type="tel" id="userPhone" required placeholder="10-digit mobile number" 
-                            class="w-full p-3 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
-                    </div>
-                    <button type="submit" id="submit-btn" class="w-full py-3.5 bg-[#0b5c9e] hover:bg-[#1279ce] text-white font-bold rounded-xl shadow-sm text-sm transition-all tracking-wide cursor-pointer">
-                        Complete & Connect →
-                    </button>
-                </form>
+            <!-- Tier 3: Contextual Sub-Filter -->
+            <div id="tier-3-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4">
+                <p id="tier-3-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
+                <div id="tier-3-options" class="flex flex-col space-y-3 text-xl font-bold tracking-tight">
+                    <!-- Dynamically populated via JS -->
+                </div>
             </div>
         </div>
 
@@ -100,8 +93,9 @@
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT LOGIC -->
     <script>
-        // Rotating Ads Data Pool
+        // Rotating Ads Data Pool (Larger text styling applied below)
         const ads = [
             {
                 header: "Pune Hiring Drive",
@@ -113,7 +107,7 @@
                 header: "Recruiter Active Directory",
                 subheader: "Connect with verified hiring teams",
                 linkText: "Register",
-                url: "https://forjob.in/recruitment.html"
+                url: "https://forjob.in/recruitment"
             }
         ];
 
@@ -134,173 +128,51 @@
             }, 500);
         }
 
+        // Initialize first ad and start loop every 4.5 seconds
         renderAd();
         setInterval(() => {
             currentAdIndex = (currentAdIndex + 1) % ads.length;
             renderAd();
         }, 4500);
 
-        // Funnel State & Google Sheet API Configuration
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwq7wc1COA0Km2yF8U2eUo_nSlAUHGHabTShIp_WRDMMLDYP3ivy7tQpu6Yd4GNinNSVQ/exec";
+        // Navigation & Tiers Logic
+        let selectedCat = "";
+        let selectedExp = "";
 
-        let funnelConfigData = [];
-        let sessionState = {
-            category: "",
-            experience: "",
-            subSkill: ""
-        };
-
-        // Fetch Funnel Configuration from Google Sheet on page load
-        async function loadFunnelConfig() {
-            try {
-                const response = await fetch(APPS_SCRIPT_URL);
-                funnelConfigData = await response.json();
-                renderStep1CTAs();
-            } catch (error) {
-                console.error("Error loading funnel config from Google Sheet:", error);
-                // Fallback hardcoded CTAs matching your exact requested 4 categories if API is offline
-                funnelConfigData = [
-                    { step: 1, parentKey: "root", ctaText: "#HR_Recruitment", actionValue: "hr_recruitment" },
-                    { step: 1, parentKey: "root", ctaText: "#International_Voice", actionValue: "intl_voice" },
-                    { step: 1, parentKey: "root", ctaText: "#Domestic_Voice", actionValue: "dom_voice" },
-                    { step: 1, parentKey: "root", ctaText: "#Reception_Admin", actionValue: "reception_admin" },
-                    { step: 2, parentKey: "intl_voice", ctaText: "#Fresher", actionValue: "fresher" },
-                    { step: 2, parentKey: "intl_voice", ctaText: "#Experienced", actionValue: "experienced" },
-                    { step: 2, parentKey: "dom_voice", ctaText: "#Fresher", actionValue: "fresher" },
-                    { step: 2, parentKey: "dom_voice", ctaText: "#Experienced", actionValue: "experienced" },
-                    { step: 2, parentKey: "reception_admin", ctaText: "#Fresher", actionValue: "fresher" },
-                    { step: 2, parentKey: "reception_admin", ctaText: "#Experienced", actionValue: "experienced" }
-                ];
-                renderStep1CTAs();
-            }
-        }
-
-        function renderStep1CTAs() {
-            const container = document.getElementById("dynamic-ctas-container");
-            container.innerHTML = "";
-
-            const step1Rows = funnelConfigData.filter(row => String(row.step) === "1" && row.parentKey === "root");
-
-            if (step1Rows.length === 0) {
-                container.innerHTML = `<p class="text-sm text-slate-400">No categories available at the moment.</p>`;
-                return;
-            }
-
-            step1Rows.forEach(row => {
-                const btn = document.createElement("button");
-                btn.className = "brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer";
-                btn.textContent = row.ctaText;
-                btn.onclick = () => handleCategorySelection(row.actionValue, row.ctaText);
-                container.appendChild(btn);
-            });
-        }
-
-        function handleCategorySelection(actionValue, ctaText) {
-            sessionState.category = actionValue;
-
-            // Special path shortcut for HR Recruitment directly to RAD
-            if (actionValue === "hr_recruitment") {
-                window.location.href = "https://forjob.in/recruitment.html";
+        function selectCategory(category) {
+            selectedCat = category;
+            
+            if (category === '#HR_Recruitment') {
+                const radFormUrl = "https://tally.so/r/EkooyA";
+                window.location.href = radFormUrl;
                 return;
             }
 
             document.getElementById("main-view").classList.add("hidden");
-            document.getElementById("active-category-title").textContent = ctaText;
+            document.getElementById("active-category-title").textContent = category;
             document.getElementById("focus-view").classList.remove("hidden");
+            document.getElementById("tier-3-container").classList.add("hidden");
+        }
+
+        function handleTier2(expLevel) {
+            selectedExp = expLevel;
+            redirectToForm(selectedExp);
+        }
+
+        function redirectToForm(finalSubTag) {
+            const fresherFormUrl = "https://tally.so/r/Ek74e2";
+            const experiencedFormUrl = "https://tally.so/r/ZjrpKA";
             
-            renderNextStep(2, actionValue, "Select Experience Level");
-        }
-
-        function renderNextStep(stepNumber, parentKey, labelText) {
-            const stepContainer = document.getElementById("wizard-step-container");
-            const optionsContainer = document.getElementById("wizard-options-container");
-            const labelEl = document.getElementById("wizard-step-label");
-            const contactContainer = document.getElementById("contact-step-container");
-
-            contactContainer.classList.add("hidden");
-            stepContainer.classList.remove("hidden");
-            optionsContainer.innerHTML = "";
-            labelEl.textContent = labelText;
-
-            const matchingRows = funnelConfigData.filter(row => String(row.step) === String(stepNumber) && row.parentKey === parentKey);
-
-            if (matchingRows.length === 0) {
-                stepContainer.classList.add("hidden");
-                contactContainer.classList.remove("hidden");
-                return;
-            }
-
-            matchingRows.forEach(row => {
-                const btn = document.createElement("button");
-                btn.className = "brand-hover transition-all text-glow cursor-pointer";
-                btn.textContent = row.ctaText;
-                btn.onclick = () => handleWizardChoice(stepNumber, row.actionValue, row.ctaText);
-                optionsContainer.appendChild(btn);
-            });
-        }
-
-        function handleWizardChoice(currentStep, actionValue, ctaText) {
-            if (currentStep === 2) {
-                sessionState.experience = actionValue;
-                const nextStepRows = funnelConfigData.filter(row => String(row.step) === "3" && row.parentKey === actionValue);
-                if (nextStepRows.length > 0) {
-                    renderNextStep(3, actionValue, "Select Preference / Skill");
-                } else {
-                    document.getElementById("wizard-step-container").classList.add("hidden");
-                    document.getElementById("contact-step-container").classList.remove("hidden");
-                }
-            } else if (currentStep === 3) {
-                sessionState.subSkill = actionValue;
-                document.getElementById("wizard-step-container").classList.add("hidden");
-                document.getElementById("contact-step-container").classList.remove("hidden");
-            }
+            const targetUrl = (selectedExp === '#Fresher') ? fresherFormUrl : experiencedFormUrl;
+            window.location.href = targetUrl;
         }
 
         function goBack() {
             document.getElementById("focus-view").classList.add("hidden");
-            document.getElementById("contact-step-container").classList.add("hidden");
-            document.getElementById("wizard-step-container").classList.remove("hidden");
             document.getElementById("main-view").classList.remove("hidden");
-            sessionState = { category: "", experience: "", subSkill: "" };
+            selectedCat = "";
+            selectedExp = "";
         }
-
-        async function submitLead(event) {
-            event.preventDefault();
-            const name = document.getElementById("userName").value.trim();
-            const phone = document.getElementById("userPhone").value.trim();
-            const submitBtn = document.getElementById("submit-btn");
-
-            submitBtn.textContent = "Submitting...";
-            submitBtn.disabled = true;
-
-            const payload = {
-                timestamp: new Date().toISOString(),
-                category: sessionState.category,
-                experience: sessionState.experience,
-                subSkill: sessionState.subSkill,
-                fullName: name,
-                whatsapp: phone
-            };
-
-            try {
-                await fetch(APPS_SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-
-                alert("Thank you! Your details have been submitted successfully.");
-                window.location.reload();
-            } catch (err) {
-                console.error("Submission error:", err);
-                alert("Thank you! Connecting you now.");
-                window.location.reload();
-            }
-        }
-
-        // Initialize dynamic funnel loading on startup
-        loadFunnelConfig();
     </script>
 </body>
 </html>
