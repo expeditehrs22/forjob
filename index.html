@@ -3,84 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForJob.in - Direct Jobs in Pune</title>
+    <!-- EDITABLE SEO: Page Title -->
+    <title>ForJob.in - Direct Voice, Sales & Desk Jobs in Pune</title>
+    <meta name="description" content="Find direct BPO, International Voice, Domestic Voice, Sales, Administration, and Healthcare nursing jobs in Pune. Zero middlemen.">
     <!-- Favicon link -->
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .brand-text {
-            color: #0b5c9e;
-        }
-        .text-glow {
-            text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15);
-        }
-        .fade-text {
-            transition: opacity 0.6s ease-in-out;
-        }
-        .brand-hover:hover {
-            color: #1279ce;
-        }
+        .brand-text { color: #0b5c9e; }
+        .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
+        .fade-text { transition: opacity 0.6s ease-in-out; }
+        .brand-hover:hover { color: #1279ce; }
     </style>
 </head>
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
 
-    <!-- TOP SECTION: Rotating 2-Ad Loop -->
+    <!-- ========================================== -->
+    <!-- ZONE 1: THE INSTANT HOOK & ROTATING TICKER  -->
+    <!-- ========================================== -->
     <header class="w-full pt-8 pb-4 text-center px-4">
-        <!-- Fixed height wrapper prevents iPhone vertical layout jumps -->
         <div class="min-h-[85px] flex flex-col items-center justify-center">
+            <!-- EDITABLE CONTENT: Update text or links in the 'ads' array below -->
             <div id="rotating-ad-container" class="fade-text flex flex-col items-center space-y-1">
                 <!-- Dynamically populated via script -->
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT AREA -->
+    <!-- ========================================== -->
+    <!-- ZONE 2: CORE CATEGORY GATEWAY              -->
+    <!-- ========================================== -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full transition-all duration-300">
-        
-        <!-- VIEW 1: Main Category Hashtags -->
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center pt-2">
+            <h1 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Select a category to apply</h1>
+            
+            <!-- EDITABLE SECTION: Main Category CTAs linking to dedicated sub-pages -->
             <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
-                <button onclick="selectCategory('#HR_Recruitment')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#HR_Recruitment</button>
-                <button onclick="selectCategory('#International_BPO')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#International_BPO</button>
-                <button onclick="selectCategory('#Tele_Sales_Services')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Tele_Sales_Services</button>
-                <button onclick="selectCategory('#BD_Sales')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#BD_Sales</button>
-                <button onclick="selectCategory('#Reception_Admin')" class="brand-hover transition-all transform hover:scale-105 text-glow cursor-pointer">#Reception_Admin</button>
+                <a href="international-voice.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#International_Voice</a>
+                <a href="domestic-voice.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Domestic_Voice</a>
+                <a href="recruitment.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#HR_Recruitment</a>
+                <a href="sales.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Sales_BD</a>
+                <a href="reception-admin.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Reception_Admin</a>
+                <a href="hospital-nursing.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Hospital_Nursing</a>
             </div>
         </div>
-
-        <!-- VIEW 2: Focused Sub-Tier View -->
-        <div id="focus-view" class="w-full hidden flex flex-col items-center text-center space-y-6">
-            <!-- Text-only Back Toggle -->
-            <button onclick="goBack()" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer mb-2">
-                ← Back to categories
-            </button>
-
-            <!-- Centered Active Title -->
-            <h2 id="active-category-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow"></h2>
-
-            <!-- Tier 2: Experience Split -->
-            <div class="w-full flex flex-col space-y-4 pt-4">
-                <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Select Experience Level</p>
-                <div class="flex flex-col space-y-3 text-2xl font-bold tracking-tight">
-                    <button onclick="handleTier2('#Fresher')" class="brand-hover transition-all text-glow cursor-pointer">#Fresher</button>
-                    <button onclick="handleTier2('#Experienced')" class="brand-hover transition-all text-glow cursor-pointer">#Experienced</button>
-                </div>
-            </div>
-
-            <!-- Tier 3: Contextual Sub-Filter -->
-            <div id="tier-3-container" class="w-full hidden flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-4">
-                <p id="tier-3-label" class="text-xs uppercase tracking-widest text-slate-400 font-semibold"></p>
-                <div id="tier-3-options" class="flex flex-col space-y-3 text-xl font-bold tracking-tight">
-                    <!-- Dynamically populated via JS -->
-                </div>
-            </div>
-        </div>
-
     </main>
 
-    <!-- FOOTER SECTION -->
+    <!-- ========================================== -->
+    <!-- ZONE 3: TRUST SIGNALS & FOOTER             -->
+    <!-- ========================================== -->
     <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
+        <!-- EDITABLE FOOTER LINKS -->
         <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
             <a href="employers.html" class="brand-hover transition-colors">For Employers</a>
             <a href="privacy.html" class="brand-hover transition-colors">Privacy Policy</a>
@@ -92,22 +66,21 @@
         <p class="text-[11px] text-slate-400">© 2026 ForJob.in. Pune, India.</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
-<!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT: Zone 1 Ticker Logic -->
     <script>
-        // Rotating Ads Data Pool (Larger text styling applied below)
+        // EDITABLE: Change Zone 1 rotating banner messages & target links here
         const ads = [
             {
                 header: "Pune Hiring Drive",
                 subheader: "Direct Employer Connect",
-                linkText: "Register",
-                url: "https://tally.so/r/Ek74e2"
+                linkText: "Register Now",
+                url: "https://forjob.in/recruitment.html"
             },
             {
-                header: "Recruiter Active Directory",
-                subheader: "Connect with verified hiring teams",
-                linkText: "Register",
-                url: "https://forjob.in/recruitment"
+                header: "Hospital Nursing Drive",
+                subheader: "Staff Nurses & Healthcare Openings",
+                linkText: "View Openings",
+                url: "https://forjob.in/hospital-nursing.html"
             }
         ];
 
@@ -117,7 +90,6 @@
         function renderAd() {
             const ad = ads[currentAdIndex];
             adContainer.style.opacity = 0;
-            
             setTimeout(() => {
                 adContainer.innerHTML = `
                     <h3 class="text-lg sm:text-2xl font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
@@ -128,51 +100,11 @@
             }, 500);
         }
 
-        // Initialize first ad and start loop every 4.5 seconds
         renderAd();
         setInterval(() => {
             currentAdIndex = (currentAdIndex + 1) % ads.length;
             renderAd();
         }, 4500);
-
-        // Navigation & Tiers Logic
-        let selectedCat = "";
-        let selectedExp = "";
-
-        function selectCategory(category) {
-            selectedCat = category;
-            
-            if (category === '#HR_Recruitment') {
-                const radFormUrl = "https://tally.so/r/EkooyA";
-                window.location.href = radFormUrl;
-                return;
-            }
-
-            document.getElementById("main-view").classList.add("hidden");
-            document.getElementById("active-category-title").textContent = category;
-            document.getElementById("focus-view").classList.remove("hidden");
-            document.getElementById("tier-3-container").classList.add("hidden");
-        }
-
-        function handleTier2(expLevel) {
-            selectedExp = expLevel;
-            redirectToForm(selectedExp);
-        }
-
-        function redirectToForm(finalSubTag) {
-            const fresherFormUrl = "https://tally.so/r/Ek74e2";
-            const experiencedFormUrl = "https://tally.so/r/ZjrpKA";
-            
-            const targetUrl = (selectedExp === '#Fresher') ? fresherFormUrl : experiencedFormUrl;
-            window.location.href = targetUrl;
-        }
-
-        function goBack() {
-            document.getElementById("focus-view").classList.add("hidden");
-            document.getElementById("main-view").classList.remove("hidden");
-            selectedCat = "";
-            selectedExp = "";
-        }
     </script>
 </body>
 </html>
