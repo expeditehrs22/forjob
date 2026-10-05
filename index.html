@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,8 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Real Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .brand-text { color: #0b5c9e; }
         .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
@@ -20,11 +22,11 @@
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
 
     <!-- ========================================== -->
-    <!-- ZONE 1: THE INSTANT HOOK & ROTATING TICKER  -->
+    <!-- ZONE 1: ROTATING TICKER & URGENT AD SPACE  -->
     <!-- ========================================== -->
     <header class="w-full pt-8 pb-4 text-center px-4">
         <div class="min-h-[85px] flex flex-col items-center justify-center">
-            <!-- EDITABLE CONTENT: Update text or links in the 'ads' array below -->
+            <!-- EDITABLE: Double-up as ad space for walk-ins or urgent roles -->
             <div id="rotating-ad-container" class="fade-text flex flex-col items-center space-y-1">
                 <!-- Dynamically populated via script -->
             </div>
@@ -38,22 +40,41 @@
         <div id="main-view" class="w-full flex flex-col items-center space-y-6 text-center pt-2">
             <h1 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Select a category to apply</h1>
             
-            <!-- EDITABLE SECTION: Main Category CTAs linking to dedicated sub-pages -->
+            <!-- EDITABLE SECTION: Main Category CTAs mapped to your created pages -->
             <div class="w-full flex flex-col space-y-4 text-2xl sm:text-3xl font-bold tracking-tight">
-                <a href="international-voice.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#International_Voice</a>
-                <a href="domestic-voice.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Domestic_Voice</a>
-                <a href="recruitment.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#HR_Recruitment</a>
-                <a href="sales.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Sales_BD</a>
-                <a href="reception-admin.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Reception_Admin</a>
-                <a href="hospital-nursing.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#Hospital_Nursing</a>
+                <a href="hr.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#HR</a>
+                <a href="bpo.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#BPO</a>
+                <a href="sales.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#SALES</a>
+                <a href="front-office.html" class="brand-hover transition-all transform hover:scale-105 text-glow">#FRONT_OFFICE</a>
             </div>
         </div>
     </main>
 
     <!-- ========================================== -->
-    <!-- ZONE 3: TRUST SIGNALS & FOOTER             -->
+    <!-- ZONE 3: SOCIAL MEDIA BAR (ABOVE FOOTER)    -->
     <!-- ========================================== -->
-    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
+    <section class="w-full py-6 px-4 flex flex-col items-center justify-center space-y-3 bg-slate-50 border-t border-slate-100">
+        <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Join our broadcast channels & groups</p>
+        <div class="flex items-center space-x-6 text-2xl">
+            <!-- LinkedIn -->
+            <a href="contact.html" class="brand-hover transition-transform hover:scale-110" title="LinkedIn Groups & Pages">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <!-- Facebook -->
+            <a href="contact.html" class="brand-hover transition-transform hover:scale-110" title="Facebook Job Groups">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <!-- WhatsApp -->
+            <a href="contact.html" class="brand-hover transition-transform hover:scale-110" title="WhatsApp Job Broadcast Channels">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TRUST SIGNALS & FOOTER                     -->
+    <!-- ========================================== -->
+    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50">
         <!-- EDITABLE FOOTER LINKS -->
         <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
             <a href="employers.html" class="brand-hover transition-colors">For Employers</a>
@@ -71,16 +92,22 @@
         // EDITABLE: Change Zone 1 rotating banner messages & target links here
         const ads = [
             {
-                header: "Pune Hiring Drive",
-                subheader: "Direct Employer Connect",
-                linkText: "Register Now",
-                url: "https://forjob.in/recruitment.html"
+                header: "Are you a Fresher, open to Night Shift?",
+                subheader: "Direct Employer Connections in Pune",
+                linkText: "Apply Now",
+                url: "bpo.html"
             },
             {
-                header: "Hospital Nursing Drive",
-                subheader: "Staff Nurses & Healthcare Openings",
-                linkText: "View Openings",
-                url: "https://forjob.in/hospital-nursing.html"
+                header: "Are you a Fresher, Open to Calling jobs?",
+                subheader: "Multilingual & Voice Process Openings",
+                linkText: "Apply Now",
+                url: "bpo.html"
+            },
+            {
+                header: "Are you a Fresher, Open to Sales jobs?",
+                subheader: "BD, Inside Sales & Lead Generation",
+                linkText: "Apply Now",
+                url: "sales.html"
             }
         ];
 
@@ -92,9 +119,8 @@
             adContainer.style.opacity = 0;
             setTimeout(() => {
                 adContainer.innerHTML = `
-                    <h3 class="text-lg sm:text-2xl font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
-                    <p class="text-base sm:text-lg font-medium text-slate-600">${ad.subheader}</p>
-                    <a href="${ad.url}" class="text-xs sm:text-sm font-semibold italic brand-hover transition-colors pt-1 cursor-pointer">${ad.linkText} →</a>
+                    <h3 class="text-base sm:text-xl font-extrabold uppercase tracking-wide text-slate-800">${ad.header}</h3>
+                    <p class="text-sm font-medium text-slate-600">${ad.subheader} <span class="text-[#0b5c9e] font-bold italic">(${ad.linkText} →)</span></p>
                 `;
                 adContainer.style.opacity = 1;
             }, 500);
@@ -104,7 +130,7 @@
         setInterval(() => {
             currentAdIndex = (currentAdIndex + 1) % ads.length;
             renderAd();
-        }, 4500);
+        }, 5000);
     </script>
 </body>
 </html>
