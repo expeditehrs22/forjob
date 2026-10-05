@@ -13,7 +13,7 @@
     <!-- Open Graph / LinkedIn Meta Tags -->
     <meta property="og:title" content="Recruiter Active Directory & HR Jobs | ForJob.in" />
     <meta property="og:description" content="Connect directly with verified employers and hiring teams in Pune. Zero middlemen." />
-    <meta property="og:url" content="https://www.forjob.in/recruitment.html" />
+    <meta property="og:url" content="https://www.forjob.in/recruiter-hotlist.html" />
     <meta property="og:type" content="website" />
     
     <!-- Tailwind CSS -->
@@ -37,16 +37,6 @@
             </a>
             <div class="text-sm font-bold tracking-tighter brand-text">FORJOB.IN</div>
         </div>
-
-        <!-- Mode Toggle Tabs (Switch between Directory Hotlist & Quick Click Form) -->
-        <div class="flex bg-slate-100 p-1 rounded-xl max-w-md mx-auto w-full border border-slate-200">
-            <button onclick="switchTab('directory')" id="tab-directory" class="flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-lg bg-white brand-text shadow-sm transition-all cursor-pointer">
-                🔥 Live Directory & Hotlist
-            </button>
-            <button onclick="switchTab('form')" id="tab-form" class="flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-lg text-slate-500 hover:text-slate-800 transition-all cursor-pointer">
-                ⚡ Quick Apply Form
-            </button>
-        </div>
     </header>
 
     <!-- ========================================== -->
@@ -56,27 +46,23 @@
 
         <!-- VIEW A: THE RECRUITER ACTIVE DIRECTORY & HOTLIST -->
         <div id="view-directory" class="space-y-6">
-            <!-- Title & Magnetic Value Proposition -->
+            <!-- Title & Direction C Positioning -->
             <div class="space-y-3 text-center">
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow">Recruiter Active Directory (RAD)</h1>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow">Cut the portals. Connect with recruiters directly.</h1>
                 <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                    Pune's premier direct-talent network. We cut out the noise and middle-men, bridging elite recruitment professionals directly with active hiring pipelines and employers across Hinjewadi, Kharadi, and the broader tech hub.
+                    Pune's open recruiter network. Recruiters showcase their LinkedIn profiles for free discovery, while hiring teams browse the hotlist instantly.
                 </p>
             </div>
 
-            <!-- Recruiter Value & Advantage Section -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl">
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Direct Client Access</p>
-                    <p class="text-xs text-slate-500 mt-1">Get discovered instantly by hiring managers looking for specialized talent mapping.</p>
+            <!-- Recruiter vs Employer Value Split -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl space-y-1">
+                    <p class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">⚡ For Job-Seeking Recruiters</p>
+                    <p class="text-xs text-slate-500">List your LinkedIn profile for free visibility. Join our community channels for live updates and gig opportunities.</p>
                 </div>
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl">
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">Close Faster</p>
-                    <p class="text-xs text-slate-500 mt-1">Pool resources, share hotlists, and fast-track candidate placements with zero friction.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl">
-                    <p class="text-sm font-bold text-slate-900 uppercase tracking-wide">100% Focused on Pune</p>
-                    <p class="text-xs text-slate-500 mt-1">Built natively for the local ecosystem, tailored specifically to find jobs faster.</p>
+                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl space-y-1">
+                    <p class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">🎯 For Hiring Managers</p>
+                    <p class="text-xs text-slate-500">Browse the active hotlist for free and reach out to recruitment professionals directly via their LinkedIn profiles.</p>
                 </div>
             </div>
 
@@ -158,7 +144,6 @@
 
     <!-- JAVASCRIPT: Tab Switcher & Asymmetric Funnel Logic -->
     <script>
-        // EDITABLE: Replace with your deployed Google Apps Script Web App URL
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzHwj2h5Ol8-XlJXlLIJZ7bG4AQ2bdxZEtsLkEN2MCdt9KyJ8o7L7zhoCjMXGkrYpgV/exec";
 
         let sessionState = {
