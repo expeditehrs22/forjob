@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Recruiter Hotlist - ForJob.in</title>
-    <meta name="description" content="Curated candidate hotlists for recruiters and employers in Pune. Connect directly on LinkedIn for zero friction.">
-    <meta property="og:title" content="Live Recruiter Hotlist - ForJob.in">
-    <meta property="og:image" content="og-hotlist.png">
+    <meta name="description" content="Curated candidate hotlists for recruiters and employers in Pune.">
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,21 +15,55 @@
     </style>
 </head>
 <body class="bg-white brand-text min-h-screen flex flex-col justify-between font-sans">
+    
     <header class="w-full pt-8 pb-4 text-center px-4">
         <a href="index.html" class="text-xs uppercase tracking-widest text-slate-400 font-bold hover:text-slate-600">← Back to Home</a>
     </header>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-2xl mx-auto w-full text-center py-8">
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800">Recruiter Hotlist & Talent Pipeline</h1>
-        <p class="text-base text-slate-600 mb-8 leading-relaxed">As a community service, we openly share our active candidate hotlists with recruiters. Employers can review our live talent pipelines to explore partnership and recruitment services.</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
-            <a href="https://www.linkedin.com/in/hirebetterfaster" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0b5c9e] text-white font-bold text-base rounded-xl shadow-lg hover:bg-[#094a7d] transition-all">
-                <i class="fa-brands fa-linkedin text-xl"></i> Connect on LinkedIn for Hotlist Access
-            </a>
+    <main class="flex-grow px-4 max-w-5xl mx-auto w-full py-6 space-y-8">
+        <!-- TOP CTA BANNER -->
+        <div class="text-center space-y-3 bg-slate-50 border border-slate-100 p-8 rounded-2xl shadow-sm">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800">Recruiter Hotlist & Talent Pipeline</h1>
+            <p class="text-base text-slate-600 max-w-xl mx-auto">Open community hotlist for recruiters and live talent proof for employers. Want to get listed?</p>
+            <div class="pt-2">
+                <a href="https://www.linkedin.com/in/hirebetterfaster" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#0b5c9e] text-white font-bold text-sm rounded-xl shadow-md hover:bg-[#094a7d] transition-all">
+                    <i class="fa-brands fa-linkedin text-lg"></i> DM on LinkedIn to Get Listed
+                </a>
+            </div>
+        </div>
+
+        <!-- SEARCH / FILTER CONTROLS -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div class="w-full sm:w-96 relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-search"></i>
+                </span>
+                <input type="text" id="searchInput" placeholder="Search by name, expertise, location..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-[#0b5c9e] transition-all">
+            </div>
+            <div class="text-xs text-slate-400 font-medium" id="resultCount">Loading candidates...</div>
+        </div>
+
+        <!-- DATA TABLE -->
+        <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider border-b border-slate-100">
+                        <th class="py-3 px-4 font-semibold">Name</th>
+                        <th class="py-3 px-4 font-semibold">Exp</th>
+                        <th class="py-3 px-4 font-semibold">Expertise / USP</th>
+                        <th class="py-3 px-4 font-semibold">Notice</th>
+                        <th class="py-3 px-4 font-semibold">Location</th>
+                        <th class="py-3 px-4 font-semibold text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="hotlistTableBody" class="divide-y divide-slate-100 text-slate-700">
+                    <!-- Populated dynamically via JS -->
+                </tbody>
+            </table>
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 text-xs text-slate-500">
         <div class="flex flex-wrap justify-center gap-6 font-medium">
             <a href="employers.html" class="brand-hover">For Employers</a>
@@ -42,5 +74,61 @@
         <div class="text-lg font-black tracking-tighter text-glow">FORJOB.IN</div>
         <p>© 2026 ForJob.in • Pune, India</p>
     </footer>
+
+    <!-- JAVASCRIPT: Fetch & Filter Logic -->
+    <script>
+        let allCandidates = [];
+
+        async function fetchHotlist() {
+            try {
+                // Replace data.json with your actual hosted endpoint or Apps Script URL
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxPgiSd-Y_VTivEanueatGqhgztKZCSb69SqlM_MGlG2Nan_Wu3BcxIY0PDFkNYZIznrg/exec');
+                allCandidates = await response.json();
+                renderTable(allCandidates);
+            } catch (error) {
+                document.getElementById('hotlistTableBody').innerHTML = `
+                    <tr><td colspan="6" class="py-6 text-center text-slate-400">Loading live data or no entries found yet. Connect via LinkedIn to populate.</td></tr>
+                `;
+                document.getElementById('resultCount').innerText = '0 candidates';
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('hotlistTableBody');
+            document.getElementById('resultCount').innerText = `${data.length} candidate${data.length === 1 ? '' : 's'}`;
+            
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-400">No matching candidates found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = data.map(item => `
+                <tr class="hover:bg-slate-50/80 transition-colors">
+                    <td class="py-3 px-4 font-bold text-slate-800">${item.name}</td>
+                    <td class="py-3 px-4">${item.experience}</td>
+                    <td class="py-3 px-4 text-slate-600">${item.expertise}</td>
+                    <td class="py-3 px-4 font-medium">${item.notice}</td>
+                    <td class="py-3 px-4 text-slate-600">${item.location}</td>
+                    <td class="py-3 px-4 text-right">
+                        <a href="${item.linkedin}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0b5c9e] text-white rounded-lg text-xs font-semibold hover:bg-[#094a7d] transition-all">
+                            <i class="fa-brands fa-linkedin"></i> Connect
+                        </a>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allCandidates.filter(item => 
+                Object.values(item.row || item).some(val => 
+                    String(val).toLowerCase().includes(query)
+                )
+            );
+            renderTable(filtered);
+        });
+
+        fetchHotlist();
+    </script>
 </body>
 </html>
