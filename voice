@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#Voice & BPO Jobs in Pune - ForJob.in</title>
+    <meta name="description" content="International and domestic voice process, customer support, and telesales openings in Pune. Direct WhatsApp chat.">
+    <meta property="og:title" content="#Voice & BPO Openings - ForJob.in">
+    <meta property="og:image" content="og-voice.jpg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .brand-text { color: #0b5c9e; }
+        .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
+        .brand-hover:hover { color: #1279ce; }
+    </style>
+</head>
+<body class="bg-white brand-text min-h-screen flex flex-col justify-between font-sans">
+    <header class="w-full pt-8 pb-4 text-center px-4">
+        <a href="index.html" class="text-xs uppercase tracking-widest text-slate-400 font-bold hover:text-slate-600">← Back to Home</a>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-xl mx-auto w-full text-center py-8">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800">#Voice & BPO Roles</h1>
+        <p class="text-base text-slate-600 mb-8 leading-relaxed">Explore international voice, domestic customer support, and telesales positions across Pune. Tap below to chat instantly.</p>
+        
+        <a href="https://wa.me/917057669890?text=Hi%20Dinesh,%20I%20am%20looking%20for%20%23Voice%20/%20BPO%20jobs%20in%20Pune." target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-emerald-700 transition-all transform hover:scale-105">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> Chat on WhatsApp Now
+        </a>
+    </main>
+
+    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 text-xs text-slate-500">
+        <div class="flex flex-wrap justify-center gap-6 font-medium">
+            <a href="employers.html" class="brand-hover">For Employers</a>
+            <a href="hotlist.html" class="brand-hover">Recruiter Hotlist</a>
+            <a href="privacy.html" class="brand-hover">Privacy Policy</a>
+            <a href="contact.html" class="brand-hover">Contact Us</a>
+        </div>
+        <div class="text-lg font-black tracking-tighter text-glow">FORJOB.IN</div>
+        <p>© 2026 ForJob.in • Pune, India</p>
+    </footer>
+</body>
+</html>
