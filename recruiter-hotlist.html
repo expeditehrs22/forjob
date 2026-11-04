@@ -3,214 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruiter Hotlist & Active Directory - ForJob.in</title>
-    <meta name="description" content="Connect directly with verified recruitment professionals and active talent partners in Pune. Zero middlemen.">
-    <!-- Favicon link -->
+    <title>Live Recruiter Hotlist - ForJob.in</title>
+    <meta name="description" content="Curated candidate hotlists for recruiters and employers in Pune. Connect directly on LinkedIn for zero friction.">
+    <meta property="og:title" content="Live Recruiter Hotlist - ForJob.in">
+    <meta property="og:image" content="og-hotlist.jpg">
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .brand-text { color: #0b5c9e; }
         .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
         .brand-hover:hover { color: #1279ce; }
     </style>
 </head>
-<body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
-
-    <!-- ========================================== -->
-    <!-- ZONE 1: HEADER & BACK TO HOME GATEWAY      -->
-    <!-- ========================================== -->
-    <header class="w-full pt-8 pb-4 px-6 max-w-5xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer">
-            ← All Categories
-        </a>
-        <div class="text-sm font-bold tracking-tighter brand-text">FORJOB.IN</div>
+<body class="bg-white brand-text min-h-screen flex flex-col justify-between font-sans">
+    <header class="w-full pt-8 pb-4 text-center px-4">
+        <a href="index.html" class="text-xs uppercase tracking-widest text-slate-400 font-bold hover:text-slate-600">← Back to Home</a>
     </header>
 
-    <!-- ========================================== -->
-    <!-- ZONE 2: CONTENT & FILTER CONTROLS          -->
-    <!-- ========================================== -->
-    <main class="flex-grow px-6 max-w-5xl mx-auto w-full py-2 space-y-6">
+    <main class="flex-grow flex flex-col items-center justify-center px-4 max-w-2xl mx-auto w-full text-center py-8">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800">Recruiter Hotlist & Talent Pipeline</h1>
+        <p class="text-base text-slate-600 mb-8 leading-relaxed">As a community service, we openly share our active candidate hotlists with recruiters. Employers can review our live talent pipelines to explore partnership and recruitment services.</p>
         
-<!-- HEADER SECTION WITH LARGER TEXT -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-4">
-                <img src="favicon.png" alt="Logo" class="w-14 h-14 rounded-xl object-contain border border-slate-200 bg-white p-1">
-                <div>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-glow">Recruiter Hotlist</h1>
-                    <!-- Increased text size from text-sm to text-base or text-lg -->
-                    <p class="text-base sm:text-lg text-slate-700 mt-1 max-w-2xl leading-relaxed">
-                        Get listed on our active hotlist for <strong>free</strong>. We actively market your profile to hiring companies so they can connect with you directly, supercharging your LinkedIn visibility and putting your profile in front of more Pune employers.<br>
-                        <!-- Made this second line larger and bolder -->
-                        <span class="block mt-3 text-base sm:text-lg font-semibold text-slate-900">
-                            Looking for a change? DM me directly on <a href="https://www.linkedin.com/in/hirebetterfaster" target="_blank" class="brand-text underline hover:font-bold">LinkedIn</a> to get listed instantly.
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right shrink-0">
-                <a href="https://www.linkedin.com/in/hirebetterfaster" target="_blank" 
-                   class="bg-[#0b5c9e] hover:bg-[#1279ce] text-white font-bold px-6 py-3.5 rounded-xl shadow-sm text-base transition-all whitespace-nowrap cursor-pointer flex items-center gap-2">
-                    <span>Message on LinkedIn</span>
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
-        
-        <!-- FILTER CONTROLS BAR -->
-        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Search Keyword</label>
-                <input type="text" id="searchInput" placeholder="Search name or keywords..." 
-                    class="w-full p-3 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Filter by Town</label>
-                <select id="townFilter" class="w-full p-3 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
-                    <option value="">All Towns (Hinjewadi, Kharadi...)</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Filter by Experience</label>
-                <select id="expFilter" class="w-full p-3 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b5c9e]">
-                    <option value="">All Experience Levels</option>
-                    <option value="0-3">0 - 3 Years</option>
-                    <option value="3-5">3 - 5 Years</option>
-                    <option value="5-10">5 - 10 Years</option>
-                    <option value="11+">11+ Years</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Table Container -->
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
-            <table class="min-w-full divide-y divide-slate-200">
-                <thead class="bg-slate-50">
-                    <tr>
-                        <th class="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Name</th>
-                        <th class="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Experience</th>
-                        <th class="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Town</th>
-                        <th class="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">City</th>
-                        <th class="px-6 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Profile</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100" id="tableBody">
-                    <tr>
-                        <td colspan="5" class="px-6 py-8 text-center text-slate-400">Loading directory...</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
+            <a href="https://www.linkedin.com/in/hirebetterfaster" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0b5c9e] text-white font-bold text-base rounded-xl shadow-lg hover:bg-[#094a7d] transition-all">
+                <i class="fa-brands fa-linkedin text-xl"></i> Connect on LinkedIn for Hotlist Access
+            </a>
         </div>
     </main>
 
-    <!-- ========================================== -->
-    <!-- ZONE 3: TRUST SIGNALS & FOOTER             -->
-    <!-- ========================================== -->
-    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 mt-12">
-        <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium text-slate-500">
-            <a href="employers.html" class="brand-hover transition-colors">For Employers</a>
-            <a href="privacy.html" class="brand-hover transition-colors">Privacy Policy</a>
-            <a href="contact.html" class="brand-hover transition-colors">Contact Us</a>
+    <footer class="w-full py-8 text-center px-4 flex flex-col items-center space-y-4 border-t border-slate-50 text-xs text-slate-500">
+        <div class="flex flex-wrap justify-center gap-6 font-medium">
+            <a href="employers.html" class="brand-hover">For Employers</a>
+            <a href="hotlist.html" class="brand-hover">Recruiter Hotlist</a>
+            <a href="privacy.html" class="brand-hover">Privacy Policy</a>
+            <a href="contact.html" class="brand-hover">Contact Us</a>
         </div>
-        <div class="text-xl font-black tracking-tighter text-glow">
-            FORJOB.IN
-        </div>
-        <p class="text-[11px] text-slate-400">© 2026 ForJob.in. Pune, India.</p>
+        <div class="text-lg font-black tracking-tighter text-glow">FORJOB.IN</div>
+        <p>© 2026 ForJob.in • Pune, India</p>
     </footer>
-
-    <!-- JAVASCRIPT: Data Fetching & Filtering Logic -->
-    <script>
-        let allData = [];
-
-        async function loadDirectory() {
-            try {
-                const response = await fetch('data.json');
-                allData = await response.json();
-                populateTownDropdown(allData);
-                renderTable(allData);
-            } catch (error) {
-                console.error('Error loading data:', error);
-                document.getElementById('tableBody').innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-rose-500">Error loading data.json file.</td></tr>`;
-            }
-        }
-
-        function populateTownDropdown(data) {
-            const townSelect = document.getElementById('townFilter');
-            const towns = [...new Set(data.map(row => row.Town).filter(Boolean))];
-            
-            towns.forEach(town => {
-                const option = document.createElement('option');
-                option.value = town;
-                option.textContent = town;
-                townSelect.appendChild(option);
-            });
-        }
-
-        function renderTable(data) {
-            const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = '';
-
-            if (data.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-slate-400">No matching entries found.</td></tr>`;
-                return;
-            }
-
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-slate-50 transition-colors';
-                tr.innerHTML = `
-                    <td class="px-6 py-4 font-bold text-slate-900">${escapeHtml(row.name || '')}</td>
-                    <td class="px-6 py-4 text-slate-600 font-medium">${escapeHtml(String(row.experience || ''))} yrs</td>
-                    <td class="px-6 py-4 text-slate-600"><span class="bg-blue-50 brand-text px-2.5 py-1 rounded-md text-xs font-bold">${escapeHtml(row.Town || '')}</span></td>
-                    <td class="px-6 py-4 text-slate-600 font-medium">${escapeHtml(row.City || '')}</td>
-                    <td class="px-6 py-4"><a href="${escapeHtml(row.linkedin || '#')}" target="_blank" class="brand-text hover:underline font-bold text-sm inline-flex items-center gap-1">LinkedIn &rarr;</a></td>
-                `;
-                tableBody.appendChild(tr);
-            });
-        }
-
-        function filterData() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
-            const selectedTown = document.getElementById('townFilter').value;
-            const selectedExpRange = document.getElementById('expFilter').value;
-
-            const filtered = allData.filter(row => {
-                const matchesSearch = !searchQuery || Object.values(row).some(val => 
-                    String(val).toLowerCase().includes(searchQuery)
-                );
-
-                const matchesTown = !selectedTown || row.Town === selectedTown;
-
-                let matchesExp = true;
-                if (selectedExpRange) {
-                    const expNum = parseInt(row.experience, 10);
-                    if (!isNaN(expNum)) {
-                        if (selectedExpRange === "0-3") matchesExp = (expNum >= 0 && expNum <= 3);
-                        else if (selectedExpRange === "3-5") matchesExp = (expNum >= 3 && expNum <= 5);
-                        else if (selectedExpRange === "5-10") matchesExp = (expNum >= 5 && expNum <= 10);
-                        else if (selectedExpRange === "11+") matchesExp = (expNum >= 11);
-                    } else {
-                        matchesExp = false;
-                    }
-                }
-
-                return matchesSearch && matchesTown && matchesExp;
-            });
-
-            renderTable(filtered);
-        }
-
-        function escapeHtml(str) {
-            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-        }
-
-        document.getElementById('searchInput').addEventListener('input', filterData);
-        document.getElementById('townFilter').addEventListener('change', filterData);
-        document.getElementById('expFilter').addEventListener('change', filterData);
-
-        loadDirectory();
-    </script>
 </body>
 </html>
