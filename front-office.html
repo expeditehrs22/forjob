@@ -20,19 +20,18 @@
             sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
           },
           colors: {
-            logo: {
-              dark: '#0F3763',
-              base: '#154B87',
-              mid: '#19589E',
-              bright: '#216DC2',
-              soft: '#EBF3FC',
-              mist: '#D5E6F9',
+            pin: {
+              dark: '#0B2E59',
+              navy: '#124888',
+              mid: '#1756A1',
+              royal: '#1C64B8',
+              ice: '#EBF3FC',
+              border: '#CFE0F5',
             }
           },
           boxShadow: {
-            'tile': '0 4px 20px -2px rgba(21, 75, 135, 0.07), 0 1px 3px 0 rgba(15, 55, 99, 0.04)',
-            'badge': '0 8px 16px -4px rgba(21, 75, 135, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.45)',
-            'app': '0 20px 50px -12px rgba(15, 55, 99, 0.16)',
+            'tile': '0 6px 20px -4px rgba(11, 46, 89, 0.08), 0 1px 3px 0 rgba(11, 46, 89, 0.04)',
+            'badge': '0 8px 16px -4px rgba(11, 46, 89, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45)',
           }
         }
       }
@@ -41,231 +40,246 @@
 
   <style>
     .icon-badge-3d {
-      background: linear-gradient(145deg, #216DC2 0%, #154B87 100%);
+      background: linear-gradient(145deg, #2574CF 0%, #124888 100%);
+    }
+    .text-readable {
+      text-shadow: 0 2px 10px rgba(11, 46, 89, 0.75);
     }
     * {
       -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
-<body class="bg-logo-soft/70 text-slate-800 antialiased min-h-[100dvh] flex flex-col items-center justify-center sm:py-4">
+<body class="bg-pin-ice/60 text-slate-800 antialiased min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
 
-  <div class="w-full max-w-[440px] min-h-[100dvh] sm:min-h-[820px] sm:max-h-[900px] bg-white sm:rounded-[28px] sm:border sm:border-logo-mist sm:shadow-app flex flex-col justify-between overflow-hidden relative">
-
-    <!-- ==================== 1. HEADER ==================== -->
-    <header class="bg-logo-dark text-white h-14 px-4 flex items-center justify-between shrink-0 z-30 shadow-sm">
-      <button
-        id="menuOpenBtn"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="navDrawer"
-        class="w-10 h-10 -ml-2 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 active:scale-95 transition"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-
-      <a href="index.html" class="flex items-center justify-center leading-none group">
-        <span class="text-[18px] font-extrabold tracking-wider text-white group-hover:text-sky-200 transition">
-          FORJOB.IN
-        </span>
-      </a>
-
-      <a
-        href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20looking%20for%20Front%20Office%20roles."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Connect on WhatsApp for Front Office roles"
-        title="Chat on WhatsApp"
-        class="w-10 h-10 -mr-2 rounded-xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:bg-white/10 active:scale-95 transition"
-      >
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
-        </svg>
-      </a>
-    </header>
-
-    <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
-    <div id="drawerBackdrop" class="fixed inset-0 bg-logo-dark/65 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
-    <aside
-      id="navDrawer"
-      aria-hidden="true"
-      class="fixed sm:absolute top-0 left-0 bottom-0 w-72 bg-logo-dark text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl"
+  <!-- ==================== 1. WALL-TO-WALL TOP HEADER ==================== -->
+  <header class="w-full bg-pin-dark text-white h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30 shadow-sm">
+    <button
+      id="menuOpenBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navDrawer"
+      class="w-10 h-10 -ml-2 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 active:scale-95 transition"
     >
-      <div>
-        <div class="h-14 px-5 flex items-center justify-between border-b border-white/10">
-          <span class="text-base font-extrabold tracking-wider text-white">FORJOB.IN</span>
-          <button
-            id="menuCloseBtn"
-            type="button"
-            aria-label="Close navigation menu"
-            class="w-9 h-9 -mr-1.5 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 transition"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
 
-        <nav class="p-4 space-y-1.5">
-          <a href="index.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
-            Home
-          </a>
-          <a href="recruiter-hotlist.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
-            <span>Recruiter Hotlist</span>
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-logo-bright/50 text-sky-100">Live</span>
-          </a>
-          <a href="for-employers.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
-            For Employers
-          </a>
-          <a href="privacy-policy.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
-            Privacy Policy
-          </a>
-          <a href="contact.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
-            Contact
-          </a>
-        </nav>
+    <a href="index.html" class="flex items-center justify-center leading-none group">
+      <span class="text-[18px] lg:text-[20px] font-extrabold tracking-wider text-white group-hover:text-sky-200 transition">
+        FORJOB.IN
+      </span>
+    </a>
+
+    <a
+      href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20looking%20for%20Front%20Office%20roles."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Connect on WhatsApp for Front Office roles"
+      title="Chat on WhatsApp"
+      class="w-10 h-10 -mr-2 rounded-xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:bg-white/10 active:scale-95 transition"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+      </svg>
+    </a>
+  </header>
+
+  <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
+  <div id="drawerBackdrop" class="fixed inset-0 bg-pin-dark/65 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
+  <aside
+    id="navDrawer"
+    aria-hidden="true"
+    class="fixed top-0 left-0 bottom-0 w-72 bg-pin-dark text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl"
+  >
+    <div>
+      <div class="h-14 px-5 flex items-center justify-between border-b border-white/10">
+        <span class="text-base font-extrabold tracking-wider text-white">FORJOB.IN</span>
+        <button
+          id="menuCloseBtn"
+          type="button"
+          aria-label="Close navigation menu"
+          class="w-9 h-9 -mr-1.5 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 transition"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
 
-      <div class="p-4 border-t border-white/10 space-y-2.5">
-        <p class="text-[11px] uppercase tracking-wider text-sky-200/70 font-semibold px-1">Direct Connect</p>
-        <div class="grid grid-cols-2 gap-2">
-          <a
-            href="https://wa.me/917057669890"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hirebetterfaster"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-logo-base hover:bg-logo-bright text-white text-xs font-semibold transition"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </aside>
+      <nav class="p-4 space-y-1.5">
+        <a href="index.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          Home
+        </a>
+        <a href="recruiter-hotlist.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          <span>Recruiter Hotlist</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-pin-royal/60 text-sky-100">Live</span>
+        </a>
+        <a href="for-employers.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          For Employers
+        </a>
+        <a href="privacy-policy.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          Privacy Policy
+        </a>
+        <a href="contact.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          Contact
+        </a>
+      </nav>
+    </div>
 
-    <!-- ==================== 2. VERTICAL BANNER ==================== -->
-    <section class="relative bg-gradient-to-br from-logo-dark via-logo-base to-logo-dark text-white px-4 py-4 shrink-0 overflow-hidden">
-      <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#93c5fd_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      <div class="relative z-10 flex items-center gap-3.5">
-        <div class="w-12 h-12 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white shrink-0 border border-white/20">
+    <div class="p-4 border-t border-white/10 space-y-2.5">
+      <p class="text-[11px] uppercase tracking-wider text-sky-200/70 font-semibold px-1">Direct Connect</p>
+      <div class="grid grid-cols-2 gap-2">
+        <a
+          href="https://wa.me/917057669890"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition"
+        >
+          WhatsApp
+        </a>
+        <a
+          href="https://www.linkedin.com/in/hirebetterfaster"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-pin-navy hover:bg-pin-royal text-white text-xs font-semibold transition"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== 2 & 3. MAIN SPLIT WORKSPACE ==================== -->
+  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12">
+
+    <!-- ---------- LEFT / TOP: VERTICAL PHOTO BANNER ---------- -->
+    <section class="relative w-full lg:h-full lg:col-span-5 bg-pin-dark text-white px-5 py-5 lg:p-8 shrink-0 overflow-hidden flex flex-col justify-center">
+      <img
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+        data-github-asset="assets/vertical-front-office.jpg"
+        alt="Modern corporate reception and front office space"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/95 via-pin-dark/70 to-pin-dark/50"></div>
+
+      <div class="relative z-10 flex items-center lg:items-start lg:flex-col gap-3.5 lg:gap-4 max-w-md">
+        <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white shrink-0 border border-white/30">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
           </svg>
         </div>
         <div class="min-w-0 flex-1">
-          <div class="flex items-center justify-between gap-2">
-            <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-sky-200">Vertical Hub</span>
-            <a href="index.html" class="text-[11px] font-semibold text-sky-200 hover:text-white transition">← All Verticals</a>
+          <div class="flex items-center justify-between lg:justify-start lg:gap-3 gap-2">
+            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.16em] text-sky-200 bg-pin-dark/75 border border-sky-300/30 px-2.5 py-0.5 rounded-full">
+              Vertical Hub
+            </span>
+            <a href="index.html" class="text-xs font-bold text-sky-200 hover:text-white transition">← All Verticals</a>
           </div>
-          <h1 class="text-lg font-extrabold tracking-tight leading-tight">Front Office &amp; Admin</h1>
-          <p class="text-[11px] text-sky-100/90 leading-snug mt-0.5">
-            Direct profile representation for front desk, reception &amp; office ops.
+          <h1 class="text-xl lg:text-3xl font-extrabold tracking-tight leading-tight mt-1.5 text-readable">
+            Front Office &amp; Admin
+          </h1>
+          <p class="text-xs lg:text-sm text-sky-100 leading-relaxed mt-1.5 text-readable">
+            Direct profile representation for front desk, reception &amp; office ops—no endless job boards or dead portal links.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 3. CONTENT CARDS ==================== -->
-    <main class="flex-1 bg-logo-soft/45 px-4 py-3.5 space-y-3 overflow-y-auto">
+    <!-- ---------- RIGHT / BOTTOM: REPRESENTATION CARDS ---------- -->
+    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-pin-ice/35 px-4 py-4 sm:p-5 lg:p-6 overflow-y-auto flex flex-col justify-between gap-3">
 
-      <!-- Roles We Represent -->
-      <div class="bg-white rounded-2xl border border-logo-mist/90 shadow-tile p-3.5">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-logo-dark mb-2">Front Office Tracks We Represent</h2>
-        <div class="flex flex-wrap gap-1.5">
-          <span class="text-xs font-semibold bg-logo-soft text-logo-base px-2.5 py-1 rounded-lg border border-logo-mist/70">Front Desk</span>
-          <span class="text-xs font-semibold bg-logo-soft text-logo-base px-2.5 py-1 rounded-lg border border-logo-mist/70">Receptionist</span>
-          <span class="text-xs font-semibold bg-logo-soft text-logo-base px-2.5 py-1 rounded-lg border border-logo-mist/70">Admin Coordinator</span>
-          <span class="text-xs font-semibold bg-logo-soft text-logo-base px-2.5 py-1 rounded-lg border border-logo-mist/70">Office Operations</span>
+      <!-- Card 1: Roles We Represent -->
+      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4">
+        <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark mb-2">Front Office Tracks We Represent</h2>
+        <div class="flex flex-wrap gap-1.5 lg:gap-2">
+          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Front Desk</span>
+          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Receptionist</span>
+          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Admin Coordinator</span>
+          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Office Operations</span>
         </div>
       </div>
 
-      <!-- How Representation Works -->
-      <div class="bg-white rounded-2xl border border-logo-mist/90 shadow-tile p-3.5">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-logo-dark mb-2.5">How It Works (Zero Forms)</h2>
-        <ol class="space-y-2 text-xs text-slate-600">
-          <li class="flex items-start gap-2.5">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+      <!-- Card 2: How Representation Works -->
+      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4">
+        <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark mb-2.5">How It Works (Zero Forms)</h2>
+        <ol class="space-y-2 lg:grid lg:grid-cols-3 lg:gap-3.5 lg:space-y-0 text-xs text-slate-600">
+          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
+            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">1</span>
             <span><strong class="text-slate-800">Send quick intro:</strong> Share your communication comfort, location, and experience.</span>
           </li>
-          <li class="flex items-start gap-2.5">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-            <span><strong class="text-slate-800">Fit check:</strong> We align your profile with front desk and admin requirements.</span>
+          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
+            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">2</span>
+            <span><strong class="text-slate-800">Fit check:</strong> We align your profile with front desk and admin mandates.</span>
           </li>
-          <li class="flex items-start gap-2.5">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
+            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">3</span>
             <span><strong class="text-slate-800">Direct pitch:</strong> Your profile is routed straight to active hiring teams.</span>
           </li>
         </ol>
       </div>
 
-      <!-- Quick Intro Copy + Direct Connect -->
-      <div class="bg-white rounded-2xl border border-logo-mist/90 shadow-tile p-3.5 space-y-2.5">
+      <!-- Card 3: Quick Intro Copy + Direct Connect -->
+      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4 space-y-2.5">
         <div class="flex items-center justify-between">
-          <h2 class="text-xs font-extrabold uppercase tracking-wider text-logo-dark">Quick Message Template</h2>
+          <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark">Quick Message Template</h2>
           <button
             id="copyIntroBtn"
             type="button"
-            class="text-[11px] font-bold text-logo-bright hover:text-logo-dark bg-logo-soft px-2.5 py-1 rounded-lg transition active:scale-95"
+            class="text-[11px] font-bold text-pin-royal hover:text-pin-dark bg-pin-ice px-2.5 py-1 rounded-lg border border-pin-border transition active:scale-95"
           >
             Copy Text
           </button>
         </div>
-        <p id="introTemplateText" class="text-[11px] text-slate-600 bg-logo-soft/50 border border-logo-mist/80 rounded-xl p-2.5 leading-relaxed">
+        <p id="introTemplateText" class="text-[11px] lg:text-xs text-slate-700 bg-pin-ice/55 border border-pin-border rounded-xl p-2.5 leading-relaxed">
           Hi, I am looking for Front Office opportunities. Name: [Your Name], Role: [Front Desk / Reception / Admin], Experience: [Fresher / X yrs], Preferred Area: [Location].
         </p>
-        <div class="grid grid-cols-2 gap-2 pt-0.5">
+        <div class="grid grid-cols-2 gap-2.5 pt-0.5">
           <a
             href="https://wa.me/917057669890?text=Hi%2C%20I%20am%20looking%20for%20Front%20Office%20opportunities.%20Name%3A%20%2C%20Role%3A%20%2C%20Experience%3A%20%2C%20Area%3A%20"
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm transition active:scale-[0.98]"
           >
-            <span>WhatsApp</span>
+            <span>Send on WhatsApp</span>
           </a>
           <a
             href="https://www.linkedin.com/in/hirebetterfaster"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-logo-base hover:bg-logo-bright text-white text-xs font-bold shadow-sm transition active:scale-[0.98]"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-pin-navy hover:bg-pin-royal text-white text-xs font-bold shadow-sm transition active:scale-[0.98]"
           >
-            <span>LinkedIn DM</span>
+            <span>Connect on LinkedIn</span>
           </a>
         </div>
       </div>
 
-      <!-- Hotlist Cross-Link -->
+      <!-- Card 4: Recruiter Hotlist Cross-Link -->
       <a
         href="recruiter-hotlist.html"
-        class="block bg-white rounded-2xl border border-logo-mist/90 shadow-tile hover:border-logo-bright/50 p-3.5 transition group"
+        class="block bg-white rounded-2xl border border-pin-border shadow-tile hover:border-pin-royal p-3.5 lg:p-4 transition group"
       >
         <div class="flex items-center justify-between gap-2">
           <div>
-            <p class="text-xs font-extrabold text-slate-800 group-hover:text-logo-base transition">Browse Recruiter Hotlist</p>
-            <p class="text-[11px] text-slate-500 mt-0.5">Connect directly with active recruiters in the directory.</p>
+            <p class="text-xs font-extrabold text-slate-800 group-hover:text-pin-navy transition">Browse Recruiter Hotlist</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">Connect directly with active recruiters in our live directory.</p>
           </div>
-          <span class="text-logo-bright font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+          <span class="text-pin-royal font-extrabold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
         </div>
       </a>
 
     </main>
 
-    <!-- ==================== 4. FOOTER ==================== -->
-    <footer class="bg-white border-t border-logo-mist/70 py-3 px-4 text-center shrink-0">
-      <p class="text-[11px] font-medium text-slate-400">
-        &copy; 2026 <a href="index.html" class="text-logo-base hover:text-logo-dark font-semibold transition">ForJob.in</a>, Pune
-      </p>
-    </footer>
-
   </div>
+
+  <!-- ==================== 4. WALL-TO-WALL ULTRA-CLEAN FOOTER ==================== -->
+  <footer class="w-full bg-white border-t border-pin-border py-3 px-4 text-center shrink-0">
+    <p class="text-[11px] font-medium text-slate-400">
+      &copy; 2026 <a href="index.html" class="text-pin-navy hover:text-pin-dark font-semibold transition">ForJob.in</a>, Pune
+    </p>
+  </footer>
 
   <script>
     (function () {
