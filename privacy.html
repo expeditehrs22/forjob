@@ -1,105 +1,416 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#0B2E59]">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - ForJob.in</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .brand-text { color: #0b5c9e; }
-        .text-glow { text-shadow: 0 4px 12px rgba(11, 92, 158, 0.15); }
-        .brand-hover:hover { color: #1279ce; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <!-- [EDIT: PAGE TITLE & META DESCRIPTION] -->
+  <title>Privacy Policy | ForJob.in</title>
+  <meta name="description" content="Privacy Policy for ForJob.in and Expedite HRS. Learn how we collect, use, store, and protect your data." />
+  <!-- [/EDIT] -->
+
+  <!-- [EDIT: FAVICON PATH] -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- [/EDIT] -->
+
+  <!-- Editorial Typography: Outfit (Display) + Inter (UI & Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Outfit"', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            canvas: {
+              base: '#0B2E59',
+              deep: '#082243',
+              elevated: '#103B70',
+              glow: '#7DD3FC',
+              border: 'rgba(255, 255, 255, 0.14)',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html,
+    body {
+      background-color: #0B2E59;
+      color: #F8FAFC;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .text-crisp {
+      text-shadow: 0 2px 14px rgba(8, 34, 67, 0.72);
+    }
+
+    /* Subtle custom scrollbar for legal container */
+    .legal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .legal-scroll::-webkit-scrollbar-track {
+      background: rgba(8, 34, 67, 0.5);
+      border-radius: 9999px;
+    }
+    .legal-scroll::-webkit-scrollbar-thumb {
+      background: rgba(125, 211, 252, 0.25);
+      border-radius: 9999px;
+    }
+    .legal-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(125, 211, 252, 0.45);
+    }
+  </style>
 </head>
-<body class="bg-white brand-text min-h-screen flex flex-col justify-between selection:bg-[#0b5c9e] selection:text-white font-sans">
+<body class="bg-canvas-base text-slate-100 min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
 
-    <!-- HEADER / BACK -->
-    <header class="w-full pt-8 pb-4 px-6 max-w-3xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-sm font-medium text-slate-400 brand-hover transition-colors tracking-wide cursor-pointer">
-            ← Back to Home
+  <!-- ==================== 1. HEADER ==================== -->
+  <header class="w-full bg-canvas-base h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30 border-b border-canvas-border/60">
+    <!-- Left: 3 Horizontal Line Menu Button -->
+    <button
+      id="menuOpenBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navDrawer"
+      class="w-10 h-10 -ml-2 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 active:scale-95 transition"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Center: Brand Wordmark -->
+    <!-- [EDIT: HEADER BRAND NAME] -->
+    <a href="index.html" class="flex items-center justify-center leading-none group">
+      <span class="font-display text-lg lg:text-xl font-extrabold tracking-[0.12em] text-white group-hover:text-sky-200 transition">
+        FORJOB.IN
+      </span>
+    </a>
+    <!-- [/EDIT] -->
+
+    <!-- Right: Direct WhatsApp Icon -->
+    <!-- [EDIT: HEADER WHATSAPP LINK & NUMBER] -->
+    <a
+      href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20have%20a%20question%20regarding%20privacy."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Connect on WhatsApp"
+      title="Chat on WhatsApp"
+      class="w-10 h-10 -mr-2 rounded-xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:bg-white/10 active:scale-95 transition"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+      </svg>
+    </a>
+    <!-- [/EDIT] -->
+  </header>
+
+  <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
+  <div id="drawerBackdrop" class="fixed inset-0 bg-canvas-deep/75 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
+  <aside
+    id="navDrawer"
+    aria-hidden="true"
+    class="fixed top-0 left-0 bottom-0 w-72 bg-canvas-base text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl border-r border-canvas-border"
+  >
+    <div>
+      <div class="h-14 px-5 flex items-center justify-between border-b border-canvas-border">
+        <!-- [EDIT: DRAWER BRAND TITLE] -->
+        <span class="font-display text-base font-extrabold tracking-[0.12em] text-white">FORJOB.IN</span>
+        <!-- [/EDIT] -->
+        <button
+          id="menuCloseBtn"
+          type="button"
+          aria-label="Close navigation menu"
+          class="w-9 h-9 -mr-1.5 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 transition"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- [EDIT: DRAWER NAVIGATION LINKS] -->
+      <nav class="p-4 space-y-1.5" aria-label="Primary pages">
+        <a href="index.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          Home
         </a>
-        <div class="text-sm font-bold tracking-tighter brand-text">FORJOB.IN</div>
-    </header>
+        <a href="recruiter-hotlist.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          <span>Recruiter Hotlist</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-300/15 text-sky-200">Live</span>
+        </a>
+        <a href="for-employers.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          For Employers
+        </a>
+        <a href="privacy-policy.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white/10 text-white font-semibold text-sm border border-sky-200/30">
+          <span class="w-2 h-2 rounded-full bg-sky-300"></span>
+          Privacy Policy
+        </a>
+        <a href="contact.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
+          Contact
+        </a>
+      </nav>
+      <!-- [/EDIT] -->
+    </div>
 
-    <!-- CONTENT CONTAINER WITH SCROLL BOX -->
-    <main class="flex-grow px-6 max-w-2xl mx-auto w-full py-8 space-y-6">
-        <div class="space-y-1">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-glow">Privacy Policy</h1>
-            <p class="text-xs text-slate-400">Last updated: August 22, 2026</p>
+    <!-- [EDIT: DRAWER DIRECT CONNECT LINKS] -->
+    <div class="p-4 border-t border-canvas-border space-y-2.5">
+      <p class="text-[11px] uppercase tracking-wider text-sky-200/70 font-semibold px-1">Direct Connect</p>
+      <div class="grid grid-cols-2 gap-2">
+        <a
+          href="https://wa.me/917057669890"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition"
+        >
+          WhatsApp
+        </a>
+        <a
+          href="https://www.linkedin.com/in/hirebetterfaster"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 border border-canvas-border text-white text-xs font-semibold transition"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <!-- [/EDIT] -->
+  </aside>
+
+  <!-- ==================== 2 & 3. UNIFIED SINGLE-CANVAS WORKSPACE ==================== -->
+  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12 bg-canvas-base">
+
+    <!-- ---------- LEFT / TOP: PRIVACY OVERVIEW PANEL ---------- -->
+    <!-- [EDIT: PRIVACY PAGE HEADLINE, UPDATED DATE & SUMMARY] -->
+    <section class="relative w-full lg:h-full lg:col-span-5 bg-canvas-base overflow-hidden shrink-0 flex flex-col justify-center px-6 py-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-canvas-border">
+      <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#7DD3FC_1px,transparent_1px)] [background-size:18px_18px]"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-canvas-deep/60 via-transparent to-canvas-elevated/40"></div>
+
+      <div class="relative z-10 max-w-md space-y-3">
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="inline-flex items-center gap-1 text-xs font-semibold text-sky-200 hover:text-white transition">
+            <span>← Back to Home</span>
+          </a>
+          <span class="text-white/25">•</span>
+          <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-200 bg-canvas-deep/80 border border-canvas-border px-2.5 py-0.5 rounded-full">
+            Data &amp; Trust
+          </span>
         </div>
 
-        <!-- Scrollable Legal Box -->
-        <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 max-h-[550px] overflow-y-auto space-y-6 text-sm text-slate-600 shadow-sm">
-            <p>ForJob.in is a jobs and talent platform backed by Expedite HRS. This Privacy Policy explains how we collect, use, store, share, and manage your job application information when you visit ForJob.in, contact us, apply for a job, submit a hiring requirement, or use a form or service linked from this website.</p>
+        <h1 class="font-display text-white text-[clamp(1.65rem,3vw,2.45rem)] font-extrabold tracking-tight leading-tight text-crisp">
+          Privacy Policy
+        </h1>
+        <p class="text-xs font-semibold text-sky-300">
+          Last updated: August 22, 2026
+        </p>
+        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
+          ForJob.in is a jobs and talent platform backed by Expedite HRS. We respect candidate and employer privacy and never publish personal contact details or CVs publicly without clear, separate consent.
+        </p>
 
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Who is responsible for your data</h2>
-                <p>ForJob.in and Expedite HRS are responsible for the information collected through this website and its linked forms for the purposes described below. For privacy questions, correction requests, consent withdrawal, or complaints, email <a href="mailto:connect@expeditehrs.in" class="text-[#0b5c9e] underline">connect@expeditehrs.in</a>.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">job application information data we may collect</h2>
-                <p>Depending on how you interact with us, we may collect:</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Name, email address, phone number, city, and professional profile links.</li>
-                    <li>Job application information, CV/resume, work experience, skills, education, notice period, preferred location, and job preferences.</li>
-                    <li>Employer contact details, company details, job requirements, salary range, hiring volume, and hiring timeline.</li>
-                    <li>Messages, enquiries, feedback, and other information you choose to provide.</li>               
-                </ul>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Why we use job application information</h2>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>To publish and manage job opportunities.</li>
-                    <li>To review applications and connect candidates with relevant roles or employers.</li>
-                    <li>To review employer hiring requirements and provide recruitment-related services.</li>
-                    <li>To communicate about your enquiry, application, registration, or service request.</li>
-                    <li>To operate, secure, improve, and troubleshoot ForJob.in and its linked services.</li>
-                    <li>To meet regulatory, fraud-prevention, and record-keeping requirements.</li>
-                    <li>To send marketing or job-related updates only where you have separately opted in or where otherwise permitted.</li>
-                </ul>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Sharing of job application information</h2>
-                <p>We may share relevant information with prospective or current employers, recruitment partners, and service providers only when necessary for the stated purpose, such as reviewing a job application or managing a hiring requirement.</p>
-                <p>We do not publish a candidate’s contact information, CV, salary details, or other sensitive professional information on a public page without clear, separate consent.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Consent, correction, and withdrawal</h2>
-                <p>Where we rely on consent, you may withdraw it at any time. You may also request access to, correction of, updating of, or deletion of your job application information, subject to legal and legitimate business retention requirements. To make a request, email connect@expeditehrs.in with the subject:</p>
-                <p class="font-mono text-xs bg-white p-2 border border-slate-200 rounded">Privacy request – ForJob.in – [Your Name]</p>
-                <p>We may request reasonable information to verify your identity before acting on a request. Withdrawal of consent will not affect processing already carried out before withdrawal, and may affect our ability to provide a requested service.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Data retention and security</h2>
-                <p>We retain job application information only for as long as reasonably necessary for recruitment, communication, obligations, dispute management, and legitimate record keeping. We use reasonable administrative and technical measures to protect information.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Third-party websites and services</h2>
-                <p>This site may link to third-party websites, job application tools, social-media platforms, or forms. Their privacy practices are governed by their own policies.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Changes to this policy</h2>
-                <p>We may update this Privacy Policy when our services, data practices, or legal obligations change. The latest version will be published on this page with an updated date.</p>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="font-bold text-slate-900">Contact and grievance</h2>
-                <p>For privacy enquiries, requests, or complaints, contact: connect@expeditehrs.in</p>
-            </div>
+        <div class="pt-2 flex flex-wrap gap-2.5">
+          <a
+            href="mailto:connect@expeditehrs.in?subject=Privacy%20request%20%E2%80%93%20ForJob.in%20%E2%80%93%20"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-canvas-border text-sky-100 hover:text-white text-xs font-semibold transition"
+          >
+            Email Privacy Desk
+          </a>
+          <a
+            href="contact.html"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-canvas-border text-sky-200 hover:text-white text-xs font-semibold transition"
+          >
+            Contact Page →
+          </a>
         </div>
+      </div>
+    </section>
+    <!-- [/EDIT] -->
+
+    <!-- ---------- RIGHT / BOTTOM: SCROLLABLE PRIVACY POLICY DOCUMENT ---------- -->
+    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-canvas-base px-5 py-6 sm:px-8 lg:px-10 flex flex-col justify-center">
+      <!-- [EDIT: PRIVACY POLICY CONTENT SECTIONS] -->
+      <div class="legal-scroll w-full max-w-2xl mx-auto rounded-2xl bg-canvas-deep/75 border border-canvas-border p-5 sm:p-6 max-h-[68dvh] lg:max-h-[calc(100dvh-9rem)] overflow-y-auto space-y-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
+
+        <p>
+          ForJob.in is a jobs and talent platform backed by Expedite HRS. This Privacy Policy explains how we collect, use, store, share, and manage your job application information when you visit ForJob.in, contact us, apply for a job, submit a hiring requirement, or use a form or service linked from this website.
+        </p>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Who is responsible for your data</h2>
+          <p>
+            ForJob.in and Expedite HRS are responsible for the information collected through this website and its linked forms for the purposes described below. For privacy questions, correction requests, consent withdrawal, or complaints, email <a href="mailto:connect@expeditehrs.in" class="text-sky-300 hover:text-white underline font-semibold transition">connect@expeditehrs.in</a>.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Job application information data we may collect</h2>
+          <p>Depending on how you interact with us, we may collect:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Name, email address, phone number, city, and professional profile links.</li>
+            <li>Job application information, CV/resume, work experience, skills, education, notice period, preferred location, and job preferences.</li>
+            <li>Employer contact details, company details, job requirements, salary range, hiring volume, and hiring timeline.</li>
+            <li>Messages, enquiries, feedback, and other information you choose to provide.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Why we use job application information</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>To publish and manage job opportunities.</li>
+            <li>To review applications and connect candidates with relevant roles or employers.</li>
+            <li>To review employer hiring requirements and provide recruitment-related services.</li>
+            <li>To communicate about your enquiry, application, registration, or service request.</li>
+            <li>To operate, secure, improve, and troubleshoot ForJob.in and its linked services.</li>
+            <li>To meet regulatory, fraud-prevention, and record-keeping requirements.</li>
+            <li>To send marketing or job-related updates only where you have separately opted in or where otherwise permitted.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Sharing of job application information</h2>
+          <p>
+            We may share relevant information with prospective or current employers, recruitment partners, and service providers only when necessary for the stated purpose, such as reviewing a job application or managing a hiring requirement.
+          </p>
+          <p>
+            We do not publish a candidate’s contact information, CV, salary details, or other sensitive professional information on a public page without clear, separate consent.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Consent, correction, and withdrawal</h2>
+          <p>
+            Where we rely on consent, you may withdraw it at any time. You may also request access to, correction of, updating of, or deletion of your job application information, subject to legal and legitimate business retention requirements. To make a request, email <a href="mailto:connect@expeditehrs.in?subject=Privacy%20request%20%E2%80%93%20ForJob.in%20%E2%80%93%20" class="text-sky-300 hover:text-white underline font-semibold transition">connect@expeditehrs.in</a> with the subject:
+          </p>
+          <div class="flex items-center justify-between gap-2 bg-canvas-base/90 border border-canvas-border px-3 py-2.5 rounded-xl">
+            <p id="privacySubjectText" class="font-mono text-xs text-sky-100 select-all">
+              Privacy request – ForJob.in – [Your Name]
+            </p>
+            <button
+              id="copyPrivacySubjectBtn"
+              type="button"
+              class="shrink-0 text-[11px] font-semibold text-sky-200 hover:text-white bg-white/10 hover:bg-white/15 border border-canvas-border px-2.5 py-1 rounded-lg transition active:scale-95"
+            >
+              <span id="copySubjectLabel">Copy</span>
+            </button>
+          </div>
+          <p>
+            We may request reasonable information to verify your identity before acting on a request. Withdrawal of consent will not affect processing already carried out before withdrawal, and may affect our ability to provide a requested service.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Data retention and security</h2>
+          <p>
+            We retain job application information only for as long as reasonably necessary for recruitment, communication, obligations, dispute management, and legitimate record keeping. We use reasonable administrative and technical measures to protect information.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Third-party websites and services</h2>
+          <p>
+            This site may link to third-party websites, job application tools, social-media platforms, or forms. Their privacy practices are governed by their own policies.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Changes to this policy</h2>
+          <p>
+            We may update this Privacy Policy when our services, data practices, or legal obligations change. The latest version will be published on this page with an updated date.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h2 class="font-display text-white text-base font-bold tracking-tight">Contact and grievance</h2>
+          <p>
+            For privacy enquiries, requests, or complaints, contact: <a href="mailto:connect@expeditehrs.in" class="text-sky-300 hover:text-white underline font-semibold transition">connect@expeditehrs.in</a>
+          </p>
+        </div>
+
+      </div>
+      <!-- [/EDIT] -->
     </main>
 
-    <!-- FOOTER -->
-    <footer class="w-full py-8 text-center px-4 border-t border-slate-50 mt-12 text-xs text-slate-400">
-        © 2026 ForJob.in. Pune, India.
-    </footer>
+  </div>
+
+  <!-- ==================== 4. UNIFIED CANVAS FOOTER ==================== -->
+  <!-- [EDIT: FOOTER LINKS & COPYRIGHT] -->
+  <footer class="w-full bg-canvas-base py-3 px-4 text-center shrink-0 border-t border-canvas-border/60 space-y-1">
+    <div class="flex flex-wrap justify-center gap-5 text-xs font-medium text-sky-200/80">
+      <a href="for-employers.html" class="hover:text-white transition">For Employers</a>
+      <a href="recruiter-hotlist.html" class="hover:text-white transition">Recruiter Hotlist</a>
+      <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+      <a href="contact.html" class="hover:text-white transition">Contact Us</a>
+    </div>
+    <p class="text-[11px] font-medium text-sky-200/65">
+      &copy; 2026 <a href="index.html" class="text-sky-100 hover:text-white font-semibold transition">ForJob.in</a>. Pune, India.
+    </p>
+  </footer>
+  <!-- [/EDIT] -->
+
+  <script>
+    (function () {
+      const menuOpenBtn = document.getElementById('menuOpenBtn');
+      const menuCloseBtn = document.getElementById('menuCloseBtn');
+      const navDrawer = document.getElementById('navDrawer');
+      const drawerBackdrop = document.getElementById('drawerBackdrop');
+
+      function openDrawer() {
+        drawerBackdrop.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          drawerBackdrop.classList.remove('opacity-0');
+          navDrawer.classList.remove('-translate-x-full');
+        });
+        menuOpenBtn.setAttribute('aria-expanded', 'true');
+        navDrawer.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeDrawer() {
+        drawerBackdrop.classList.add('opacity-0');
+        navDrawer.classList.add('-translate-x-full');
+        menuOpenBtn.setAttribute('aria-expanded', 'false');
+        navDrawer.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          drawerBackdrop.classList.add('hidden');
+        }, 250);
+      }
+
+      menuOpenBtn.addEventListener('click', openDrawer);
+      menuCloseBtn.addEventListener('click', closeDrawer);
+      drawerBackdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !navDrawer.classList.contains('-translate-x-full')) {
+          closeDrawer();
+        }
+      });
+
+      const copyBtn = document.getElementById('copyPrivacySubjectBtn');
+      const copyLabel = document.getElementById('copySubjectLabel');
+      const subjectText = document.getElementById('privacySubjectText');
+      if (copyBtn && subjectText) {
+        copyBtn.addEventListener('click', () => {
+          const text = subjectText.textContent.trim();
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+              copyLabel.textContent = 'Copied!';
+              setTimeout(() => {
+                copyLabel.textContent = 'Copy';
+              }, 1800);
+            });
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
