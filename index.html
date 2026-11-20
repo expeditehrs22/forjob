@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#0B2E59]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>ForJob.in | Recruitment & Career Hub</title>
+  <!-- [EDIT: PAGE TITLE & META DESCRIPTION] -->
+  <title>ForJob.in | Recruitment &amp; Career Hub</title>
   <meta name="description" content="ForJob.in — Connect directly for HR, Voice, Sales, and Front Office roles." />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- [/EDIT] -->
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- [EDIT: FAVICON PATH] -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- [/EDIT] -->
+
+  <!-- Editorial Typography: Outfit (Display) + Inter (UI & Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,23 +24,17 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Outfit"', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
           },
           colors: {
-            pin: {
-              dark: '#0B2E59',
-              navy: '#124888',
-              mid: '#1756A1',
-              royal: '#1C64B8',
-              ice: '#EBF3FC',
-              border: '#CFE0F5',
+            canvas: {
+              base: '#0B2E59',
+              deep: '#082243',
+              elevated: '#103B70',
+              glow: '#7DD3FC',
+              border: 'rgba(255, 255, 255, 0.14)',
             }
-          },
-          boxShadow: {
-            'tile': '0 8px 24px -6px rgba(11, 46, 89, 0.16), 0 2px 6px -1px rgba(11, 46, 89, 0.06)',
-            'tile-hover': '0 18px 34px -8px rgba(11, 46, 89, 0.32), 0 6px 14px -4px rgba(18, 72, 136, 0.16)',
-            'badge': '0 8px 16px -4px rgba(11, 46, 89, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45)',
-            'cta': '0 10px 24px -4px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.28)',
           }
         }
       }
@@ -43,25 +42,48 @@
   </script>
 
   <style>
-    .carousel-track {
-      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .icon-badge-3d {
-      background: linear-gradient(145deg, #2574CF 0%, #124888 100%);
-    }
-    .text-readable {
-      text-shadow: 0 2px 10px rgba(11, 46, 89, 0.75);
-    }
-    * {
+    html,
+    body {
+      background-color: #0B2E59;
+      color: #F8FAFC;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .carousel-track {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .text-crisp {
+      text-shadow: 0 2px 14px rgba(8, 34, 67, 0.72);
+    }
+
+    /* Subtle light luminous ring around vertical CTA square on hover/focus */
+    .vertical-cta-square {
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .vertical-cta-square:hover,
+    .vertical-cta-square:focus-visible {
+      border-color: rgba(186, 230, 253, 0.85);
+      box-shadow:
+        0 0 0 1px rgba(186, 230, 253, 0.45),
+        0 0 26px -2px rgba(125, 211, 252, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .vertical-cta-square:active {
+      transform: scale(0.985);
     }
   </style>
 </head>
-<body class="bg-pin-ice/60 text-slate-800 antialiased min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
+<body class="bg-canvas-base text-slate-100 min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
 
-  <!-- ==================== 1. WALL-TO-WALL TOP HEADER ==================== -->
-  <header class="w-full bg-pin-dark text-white h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30 shadow-sm">
-    <!-- Left: 3 Horizontal Line Menu Trigger -->
+  <!-- ==================== 1. HEADER ==================== -->
+  <header class="w-full bg-canvas-base h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30">
+    <!-- Left: 3 Horizontal Line Menu Button -->
     <button
       id="menuOpenBtn"
       type="button"
@@ -70,19 +92,22 @@
       aria-controls="navDrawer"
       class="w-10 h-10 -ml-2 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 active:scale-95 transition"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
 
     <!-- Center: Brand Wordmark -->
+    <!-- [EDIT: HEADER BRAND NAME] -->
     <a href="index.html" class="flex items-center justify-center leading-none group">
-      <span class="text-[18px] lg:text-[20px] font-extrabold tracking-wider text-white group-hover:text-sky-200 transition">
+      <span class="font-display text-lg lg:text-xl font-extrabold tracking-[0.12em] text-white group-hover:text-sky-200 transition">
         FORJOB.IN
       </span>
     </a>
+    <!-- [/EDIT] -->
 
     <!-- Right: Direct WhatsApp Icon -->
+    <!-- [EDIT: HEADER WHATSAPP LINK & NUMBER] -->
     <a
       href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20looking%20for%20job%20opportunities."
       target="_blank"
@@ -91,42 +116,46 @@
       title="Chat on WhatsApp"
       class="w-10 h-10 -mr-2 rounded-xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:bg-white/10 active:scale-95 transition"
     >
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
       </svg>
     </a>
+    <!-- [/EDIT] -->
   </header>
 
   <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
-  <div id="drawerBackdrop" class="fixed inset-0 bg-pin-dark/65 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
+  <div id="drawerBackdrop" class="fixed inset-0 bg-canvas-deep/75 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
   <aside
     id="navDrawer"
     aria-hidden="true"
-    class="fixed top-0 left-0 bottom-0 w-72 bg-pin-dark text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl"
+    class="fixed top-0 left-0 bottom-0 w-72 bg-canvas-base text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl border-r border-canvas-border"
   >
     <div>
-      <div class="h-14 px-5 flex items-center justify-between border-b border-white/10">
-        <span class="text-base font-extrabold tracking-wider text-white">FORJOB.IN</span>
+      <div class="h-14 px-5 flex items-center justify-between border-b border-canvas-border">
+        <!-- [EDIT: DRAWER BRAND TITLE] -->
+        <span class="font-display text-base font-extrabold tracking-[0.12em] text-white">FORJOB.IN</span>
+        <!-- [/EDIT] -->
         <button
           id="menuCloseBtn"
           type="button"
           aria-label="Close navigation menu"
           class="w-9 h-9 -mr-1.5 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 transition"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <nav class="p-4 space-y-1.5">
-        <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-pin-royal/40 text-white font-semibold text-sm border border-sky-300/25">
+      <!-- [EDIT: DRAWER NAVIGATION LINKS] -->
+      <nav class="p-4 space-y-1.5" aria-label="Primary pages">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white/10 text-white font-semibold text-sm border border-sky-200/30">
           <span class="w-2 h-2 rounded-full bg-sky-300"></span>
           Home
         </a>
         <a href="recruiter-hotlist.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
           <span>Recruiter Hotlist</span>
-          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-pin-royal/60 text-sky-100">Live</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-300/15 text-sky-200">Live</span>
         </a>
         <a href="for-employers.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
           For Employers
@@ -138,9 +167,11 @@
           Contact
         </a>
       </nav>
+      <!-- [/EDIT] -->
     </div>
 
-    <div class="p-4 border-t border-white/10 space-y-2.5">
+    <!-- [EDIT: DRAWER DIRECT CONNECT LINKS] -->
+    <div class="p-4 border-t border-canvas-border space-y-2.5">
       <p class="text-[11px] uppercase tracking-wider text-sky-200/70 font-semibold px-1">Direct Connect</p>
       <div class="grid grid-cols-2 gap-2">
         <a
@@ -155,27 +186,28 @@
           href="https://www.linkedin.com/in/hirebetterfaster"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-pin-navy hover:bg-pin-royal text-white text-xs font-semibold transition"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 border border-canvas-border text-white text-xs font-semibold transition"
         >
           LinkedIn
         </a>
       </div>
     </div>
+    <!-- [/EDIT] -->
   </aside>
 
-  <!-- ==================== 2 & 3. MAIN SPLIT WORKSPACE ==================== -->
-  <!-- Mobile: Carousel on top, 2x2 verticals below | Laptop (lg+): Carousel on left, 2x2 verticals on right inside 100dvh -->
-  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12">
+  <!-- ==================== 2 & 3. UNIFIED SINGLE-CANVAS WORKSPACE ==================== -->
+  <!-- Zero gaps or light bands between carousel and verticals; reads as one cohesive visual scene -->
+  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12 bg-canvas-base">
 
     <!-- ---------- LEFT / TOP: 3-SLIDE HERO CAROUSEL ---------- -->
     <section
       id="heroCarousel"
       aria-label="Featured highlights"
-      class="group relative w-full h-[235px] sm:h-[265px] lg:h-full lg:col-span-5 bg-pin-dark overflow-hidden shrink-0 select-none"
+      class="group relative w-full h-[235px] sm:h-[265px] lg:h-full lg:col-span-5 bg-canvas-base overflow-hidden shrink-0 select-none"
     >
       <div id="carouselTrack" class="carousel-track flex w-full h-full">
 
-        <!-- SLIDE 1: Recruiter Hotlist (Upload: assets/hero-hotlist.jpg) -->
+        <!-- [EDIT: HERO SLIDE 1 - RECRUITER HOTLIST] -->
         <div class="w-full h-full shrink-0 relative flex flex-col items-center justify-center text-center px-6 lg:px-8">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
@@ -183,31 +215,32 @@
             alt="Team collaborating in office"
             class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/55 to-pin-dark/35"></div>
+          <div class="absolute inset-0 bg-canvas-base/65"></div>
 
           <div class="relative z-10 max-w-sm mx-auto flex flex-col items-center">
-            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.18em] text-sky-200 bg-pin-dark/80 border border-sky-300/35 px-2.5 py-0.5 rounded-full mb-2">
+            <span class="inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-200 bg-canvas-deep/75 border border-canvas-border px-2.5 py-0.5 rounded-full mb-2">
               Live Directory
             </span>
-            <h1 class="text-white text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug text-readable">
+            <h1 class="font-display text-white text-[clamp(1.25rem,2.4vw,1.875rem)] font-extrabold tracking-tight leading-tight text-crisp">
               RECRUITER HOTLIST
             </h1>
-            <p class="text-sky-50 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-readable">
+            <p class="text-slate-200 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-crisp">
               Connect directly with active recruiters hiring right now.
             </p>
             <a
               href="recruiter-hotlist.html"
-              class="mt-4 inline-flex items-center gap-1.5 bg-white hover:bg-sky-50 text-pin-dark active:scale-95 text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-lg shadow-cta transition"
+              class="mt-4 inline-flex items-center gap-1.5 bg-white hover:bg-sky-50 text-canvas-base active:scale-95 text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg transition"
             >
               <span>Explore Hotlist</span>
-              <svg class="w-3.5 h-3.5 text-pin-royal" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </a>
           </div>
         </div>
+        <!-- [/EDIT] -->
 
-        <!-- SLIDE 2: Placeholder Slide 2 (Upload: assets/hero-slide-2.jpg) -->
+        <!-- [EDIT: HERO SLIDE 2 - PLACEHOLDER] -->
         <div class="w-full h-full shrink-0 relative flex flex-col items-center justify-center text-center px-6 lg:px-8">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
@@ -215,30 +248,31 @@
             alt="Professionals meeting around table"
             class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/55 to-pin-dark/35"></div>
+          <div class="absolute inset-0 bg-canvas-base/65"></div>
 
           <div class="relative z-10 max-w-sm mx-auto flex flex-col items-center">
-            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.18em] text-sky-200 bg-pin-dark/80 border border-sky-300/35 px-2.5 py-0.5 rounded-full mb-2">
+            <span class="inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-200 bg-canvas-deep/75 border border-canvas-border px-2.5 py-0.5 rounded-full mb-2">
               Slide 02 Placeholder
             </span>
-            <h2 class="text-white text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug text-readable">
+            <h2 class="font-display text-white text-[clamp(1.25rem,2.4vw,1.875rem)] font-extrabold tracking-tight leading-tight text-crisp">
               PEOPLE &amp; TEAMS SPOTLIGHT
             </h2>
-            <p class="text-sky-50 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-readable">
+            <p class="text-slate-200 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-crisp">
               Placeholder text for your second team photo and hiring message.
             </p>
             <a
               href="https://wa.me/917057669890"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-4 inline-flex items-center gap-1.5 bg-white/95 hover:bg-white text-pin-dark active:scale-95 text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-lg shadow-cta transition"
+              class="mt-4 inline-flex items-center gap-1.5 bg-white hover:bg-sky-50 text-canvas-base active:scale-95 text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg transition"
             >
               <span>Connect Now</span>
             </a>
           </div>
         </div>
+        <!-- [/EDIT] -->
 
-        <!-- SLIDE 3: Placeholder Slide 3 (Upload: assets/hero-slide-3.jpg) -->
+        <!-- [EDIT: HERO SLIDE 3 - PLACEHOLDER] -->
         <div class="w-full h-full shrink-0 relative flex flex-col items-center justify-center text-center px-6 lg:px-8">
           <img
             src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
@@ -246,26 +280,27 @@
             alt="Team working together in modern office"
             class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/55 to-pin-dark/35"></div>
+          <div class="absolute inset-0 bg-canvas-base/65"></div>
 
           <div class="relative z-10 max-w-sm mx-auto flex flex-col items-center">
-            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.18em] text-sky-200 bg-pin-dark/80 border border-sky-300/35 px-2.5 py-0.5 rounded-full mb-2">
+            <span class="inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-200 bg-canvas-deep/75 border border-canvas-border px-2.5 py-0.5 rounded-full mb-2">
               Slide 03 Placeholder
             </span>
-            <h2 class="text-white text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug text-readable">
+            <h2 class="font-display text-white text-[clamp(1.25rem,2.4vw,1.875rem)] font-extrabold tracking-tight leading-tight text-crisp">
               DIRECT TALENT ROUTING
             </h2>
-            <p class="text-sky-50 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-readable">
+            <p class="text-slate-200 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-xs text-crisp">
               Placeholder text for your third team photo and call-to-action.
             </p>
             <a
               href="for-employers.html"
-              class="mt-4 inline-flex items-center gap-1.5 bg-white/95 hover:bg-white text-pin-dark active:scale-95 text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-lg shadow-cta transition"
+              class="mt-4 inline-flex items-center gap-1.5 bg-white hover:bg-sky-50 text-canvas-base active:scale-95 text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg transition"
             >
               <span>For Employers</span>
             </a>
           </div>
         </div>
+        <!-- [/EDIT] -->
 
       </div>
 
@@ -274,9 +309,9 @@
         id="prevSlideBtn"
         type="button"
         aria-label="Previous slide"
-        class="hidden lg:flex opacity-0 group-hover:opacity-100 absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-pin-dark/75 hover:bg-pin-dark text-white items-center justify-center border border-white/25 transition"
+        class="hidden lg:flex opacity-0 group-hover:opacity-100 absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-canvas-deep/80 hover:bg-canvas-deep text-white items-center justify-center border border-canvas-border transition"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
@@ -284,9 +319,9 @@
         id="nextSlideBtn"
         type="button"
         aria-label="Next slide"
-        class="hidden lg:flex opacity-0 group-hover:opacity-100 absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-pin-dark/75 hover:bg-pin-dark text-white items-center justify-center border border-white/25 transition"
+        class="hidden lg:flex opacity-0 group-hover:opacity-100 absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-canvas-deep/80 hover:bg-canvas-deep text-white items-center justify-center border border-canvas-border transition"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
@@ -294,155 +329,145 @@
       <!-- Carousel Pagination Dots -->
       <div class="absolute bottom-3.5 left-0 right-0 z-20 flex items-center justify-center gap-2" role="tablist" aria-label="Carousel slides">
         <button type="button" data-slide="0" aria-label="Go to slide 1" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white transition-all duration-300"></button>
-        <button type="button" data-slide="1" aria-label="Go to slide 2" class="carousel-dot w-2 h-2 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
-        <button type="button" data-slide="2" aria-label="Go to slide 3" class="carousel-dot w-2 h-2 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
+        <button type="button" data-slide="1" aria-label="Go to slide 2" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300"></button>
+        <button type="button" data-slide="2" aria-label="Go to slide 3" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300"></button>
       </div>
     </section>
 
-    <!-- ---------- RIGHT / BOTTOM: 2x2 VERTICALS GRID (Full-bleed responsive grid on laptop) ---------- -->
-    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-pin-ice/35 px-4 py-4 sm:p-5 lg:p-5 flex flex-col">
-      <div class="w-full h-full grid grid-cols-2 grid-rows-2 gap-3.5 sm:gap-4 lg:gap-4">
+    <!-- ---------- RIGHT / BOTTOM: 2x2 VERTICAL CTA SQUARES (Seamless Canvas, Hover Effect Only) ---------- -->
+    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-canvas-base flex flex-col">
+      <div class="w-full h-full grid grid-cols-2 grid-rows-2">
 
-        <!-- Tile 1: HR (Upload: assets/vertical-hr.jpg) -->
+        <!-- [EDIT: VERTICAL CTA 1 - HR] -->
         <a
           href="hr.html"
-          class="group relative min-h-[165px] lg:min-h-0 h-full rounded-2xl overflow-hidden border border-pin-border shadow-tile hover:shadow-tile-hover hover:border-pin-royal hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center p-3.5 sm:p-5"
+          class="vertical-cta-square group relative min-h-[160px] lg:min-h-0 h-full overflow-hidden border border-canvas-border flex flex-col items-center justify-center text-center p-4 sm:p-6"
         >
           <img
             src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
             data-github-asset="assets/vertical-hr.jpg"
             alt="HR professional at workspace"
-            class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+            class="absolute inset-0 w-full h-full object-cover object-top"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/45 to-pin-dark/15 group-hover:from-pin-dark/95 group-hover:via-pin-dark/55 transition-colors"></div>
+          <div class="absolute inset-0 bg-canvas-base/65 group-hover:bg-canvas-base/55 transition-colors duration-200"></div>
 
           <div class="relative z-10 flex flex-col items-center">
-            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white mb-2 border border-white/30">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-sky-200 group-hover:text-white group-hover:border-sky-200/80 mb-2.5 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h2 class="text-white text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-readable">
+            <h2 class="font-display text-white text-[clamp(1rem,1.8vw,1.375rem)] font-bold tracking-tight text-crisp">
               HR
             </h2>
-            <p class="text-sky-50 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[220px] text-readable">
+            <p class="text-slate-200 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[210px] text-crisp">
               Recruiters, HR Ops &amp; Talent Acquisition roles
             </p>
-            <span class="hidden lg:inline-flex items-center gap-1 text-[11px] font-bold text-sky-200 group-hover:text-white mt-1.5 transition">
-              <span>Enter</span>
-              <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-            </span>
           </div>
         </a>
+        <!-- [/EDIT] -->
 
-        <!-- Tile 2: VOICE (Upload: assets/vertical-voice.jpg) -->
+        <!-- [EDIT: VERTICAL CTA 2 - VOICE] -->
         <a
           href="voice.html"
-          class="group relative min-h-[165px] lg:min-h-0 h-full rounded-2xl overflow-hidden border border-pin-border shadow-tile hover:shadow-tile-hover hover:border-pin-royal hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center p-3.5 sm:p-5"
+          class="vertical-cta-square group relative min-h-[160px] lg:min-h-0 h-full overflow-hidden border border-canvas-border flex flex-col items-center justify-center text-center p-4 sm:p-6"
         >
           <img
             src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=900&q=80"
             data-github-asset="assets/vertical-voice.jpg"
             alt="Support and voice team member with headset"
-            class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/45 to-pin-dark/15 group-hover:from-pin-dark/95 group-hover:via-pin-dark/55 transition-colors"></div>
+          <div class="absolute inset-0 bg-canvas-base/65 group-hover:bg-canvas-base/55 transition-colors duration-200"></div>
 
           <div class="relative z-10 flex flex-col items-center">
-            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white mb-2 border border-white/30">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-sky-200 group-hover:text-white group-hover:border-sky-200/80 mb-2.5 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0118 0v6" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
               </svg>
             </div>
-            <h2 class="text-white text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-readable">
+            <h2 class="font-display text-white text-[clamp(1rem,1.8vw,1.375rem)] font-bold tracking-tight text-crisp">
               Voice
             </h2>
-            <p class="text-sky-50 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[220px] text-readable">
+            <p class="text-slate-200 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[210px] text-crisp">
               Domestic &amp; International BPO, Support &amp; Calling
             </p>
-            <span class="hidden lg:inline-flex items-center gap-1 text-[11px] font-bold text-sky-200 group-hover:text-white mt-1.5 transition">
-              <span>Enter</span>
-              <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-            </span>
           </div>
         </a>
+        <!-- [/EDIT] -->
 
-        <!-- Tile 3: SALES (Upload: assets/vertical-sales.jpg) -->
+        <!-- [EDIT: VERTICAL CTA 3 - SALES] -->
         <a
           href="sales.html"
-          class="group relative min-h-[165px] lg:min-h-0 h-full rounded-2xl overflow-hidden border border-pin-border shadow-tile hover:shadow-tile-hover hover:border-pin-royal hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center p-3.5 sm:p-5"
+          class="vertical-cta-square group relative min-h-[160px] lg:min-h-0 h-full overflow-hidden border border-canvas-border flex flex-col items-center justify-center text-center p-4 sm:p-6"
         >
           <img
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
             data-github-asset="assets/vertical-sales.jpg"
             alt="Sales and business development team discussion"
-            class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/45 to-pin-dark/15 group-hover:from-pin-dark/95 group-hover:via-pin-dark/55 transition-colors"></div>
+          <div class="absolute inset-0 bg-canvas-base/65 group-hover:bg-canvas-base/55 transition-colors duration-200"></div>
 
           <div class="relative z-10 flex flex-col items-center">
-            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white mb-2 border border-white/30">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-sky-200 group-hover:text-white group-hover:border-sky-200/80 mb-2.5 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h2 class="text-white text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-readable">
+            <h2 class="font-display text-white text-[clamp(1rem,1.8vw,1.375rem)] font-bold tracking-tight text-crisp">
               Sales
             </h2>
-            <p class="text-sky-50 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[220px] text-readable">
+            <p class="text-slate-200 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[210px] text-crisp">
               Inside Sales, BDR, Field &amp; Business Development
             </p>
-            <span class="hidden lg:inline-flex items-center gap-1 text-[11px] font-bold text-sky-200 group-hover:text-white mt-1.5 transition">
-              <span>Enter</span>
-              <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-            </span>
           </div>
         </a>
+        <!-- [/EDIT] -->
 
-        <!-- Tile 4: FRONT OFFICE (Upload: assets/vertical-front-office.jpg) -->
+        <!-- [EDIT: VERTICAL CTA 4 - FRONT OFFICE] -->
         <a
           href="front-office.html"
-          class="group relative min-h-[165px] lg:min-h-0 h-full rounded-2xl overflow-hidden border border-pin-border shadow-tile hover:shadow-tile-hover hover:border-pin-royal hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center p-3.5 sm:p-5"
+          class="vertical-cta-square group relative min-h-[160px] lg:min-h-0 h-full overflow-hidden border border-canvas-border flex flex-col items-center justify-center text-center p-4 sm:p-6"
         >
           <img
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
             data-github-asset="assets/vertical-front-office.jpg"
             alt="Modern corporate reception and front office space"
-            class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            class="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/90 via-pin-dark/45 to-pin-dark/15 group-hover:from-pin-dark/95 group-hover:via-pin-dark/55 transition-colors"></div>
+          <div class="absolute inset-0 bg-canvas-base/65 group-hover:bg-canvas-base/55 transition-colors duration-200"></div>
 
           <div class="relative z-10 flex flex-col items-center">
-            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white mb-2 border border-white/30">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="w-11 h-11 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-sky-200 group-hover:text-white group-hover:border-sky-200/80 mb-2.5 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
             </div>
-            <h2 class="text-white text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-readable">
+            <h2 class="font-display text-white text-[clamp(1rem,1.8vw,1.375rem)] font-bold tracking-tight text-crisp">
               Front Office
             </h2>
-            <p class="text-sky-50 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[220px] text-readable">
+            <p class="text-slate-200 text-[11px] sm:text-xs leading-snug mt-1 line-clamp-2 max-w-[210px] text-crisp">
               Reception, Admin, Coordination &amp; Desk Ops
             </p>
-            <span class="hidden lg:inline-flex items-center gap-1 text-[11px] font-bold text-sky-200 group-hover:text-white mt-1.5 transition">
-              <span>Enter</span>
-              <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-            </span>
           </div>
         </a>
+        <!-- [/EDIT] -->
 
       </div>
     </main>
 
   </div>
 
-  <!-- ==================== 4. WALL-TO-WALL ULTRA-CLEAN FOOTER ==================== -->
-  <footer class="w-full bg-white border-t border-pin-border py-3 px-4 text-center shrink-0">
-    <p class="text-[11px] font-medium text-slate-400">
-      &copy; 2026 <a href="index.html" class="text-pin-navy hover:text-pin-dark font-semibold transition">ForJob.in</a>, Pune
+  <!-- ==================== 4. UNIFIED CANVAS FOOTER ==================== -->
+  <!-- [EDIT: FOOTER COPYRIGHT & HOMEPAGE LINK] -->
+  <footer class="w-full bg-canvas-base py-2.5 px-4 text-center shrink-0">
+    <p class="text-[11px] font-medium text-sky-200/65">
+      &copy; 2026 <a href="index.html" class="text-sky-100 hover:text-white font-semibold transition">ForJob.in</a>, Pune
     </p>
   </footer>
+  <!-- [/EDIT] -->
 
   <script>
     (function () {
@@ -495,11 +520,11 @@
 
         dots.forEach((dot, idx) => {
           if (idx === currentSlide) {
-            dot.classList.remove('w-2', 'bg-white/45');
+            dot.classList.remove('w-2', 'bg-white/40');
             dot.classList.add('w-2.5', 'bg-white');
           } else {
             dot.classList.remove('w-2.5', 'bg-white');
-            dot.classList.add('w-2', 'bg-white/45');
+            dot.classList.add('w-2', 'bg-white/40');
           }
         });
       }
