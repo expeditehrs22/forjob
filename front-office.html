@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#0B2E59]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Front Office Talent Representation | ForJob.in</title>
-  <meta name="description" content="Get represented for Front Desk, Reception, Admin, and Office Coordination roles with ForJob.in." />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- [EDIT: PAGE TITLE & META DESCRIPTION] -->
+  <title>Front Office Talent Representation in Pune | ForJob.in</title>
+  <meta name="description" content="ForJob.in markets Front Office candidates in Pune directly. Copy our quick intro and message on LinkedIn to join our active Front Office candidate hotlist." />
+  <!-- [/EDIT] -->
 
+  <!-- [EDIT: FAVICON PATH] -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- [/EDIT] -->
+
+  <!-- Editorial Typography: Outfit (Display) + Inter (UI & Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Outfit"', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
           },
           colors: {
-            pin: {
-              dark: '#0B2E59',
-              navy: '#124888',
-              mid: '#1756A1',
-              royal: '#1C64B8',
-              ice: '#EBF3FC',
-              border: '#CFE0F5',
+            canvas: {
+              base: '#0B2E59',
+              deep: '#082243',
+              elevated: '#103B70',
+              glow: '#7DD3FC',
+              border: 'rgba(255, 255, 255, 0.14)',
             }
-          },
-          boxShadow: {
-            'tile': '0 6px 20px -4px rgba(11, 46, 89, 0.08), 0 1px 3px 0 rgba(11, 46, 89, 0.04)',
-            'badge': '0 8px 16px -4px rgba(11, 46, 89, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45)',
           }
         }
       }
@@ -39,21 +42,37 @@
   </script>
 
   <style>
-    .icon-badge-3d {
-      background: linear-gradient(145deg, #2574CF 0%, #124888 100%);
-    }
-    .text-readable {
-      text-shadow: 0 2px 10px rgba(11, 46, 89, 0.75);
-    }
-    * {
+    html,
+    body {
+      background-color: #0B2E59;
+      color: #F8FAFC;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .text-crisp {
+      text-shadow: 0 2px 14px rgba(8, 34, 67, 0.72);
+    }
+
+    .social-pill {
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .social-pill:hover,
+    .social-pill:focus-visible {
+      border-color: rgba(186, 230, 253, 0.8);
+      background-color: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
     }
   </style>
 </head>
-<body class="bg-pin-ice/60 text-slate-800 antialiased min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
+<body class="bg-canvas-base text-slate-100 min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden lg:overflow-hidden">
 
-  <!-- ==================== 1. WALL-TO-WALL TOP HEADER ==================== -->
-  <header class="w-full bg-pin-dark text-white h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30 shadow-sm">
+  <!-- ==================== 1. HEADER ==================== -->
+  <header class="w-full bg-canvas-base h-14 px-4 lg:px-6 flex items-center justify-between shrink-0 z-30 border-b border-canvas-border/60">
+    <!-- Left: 3 Horizontal Line Menu Button -->
     <button
       id="menuOpenBtn"
       type="button"
@@ -62,60 +81,69 @@
       aria-controls="navDrawer"
       class="w-10 h-10 -ml-2 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 active:scale-95 transition"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
 
+    <!-- Center: Brand Wordmark -->
+    <!-- [EDIT: HEADER BRAND NAME] -->
     <a href="index.html" class="flex items-center justify-center leading-none group">
-      <span class="text-[18px] lg:text-[20px] font-extrabold tracking-wider text-white group-hover:text-sky-200 transition">
+      <span class="font-display text-lg lg:text-xl font-extrabold tracking-[0.12em] text-white group-hover:text-sky-200 transition">
         FORJOB.IN
       </span>
     </a>
+    <!-- [/EDIT] -->
 
+    <!-- Right: Direct WhatsApp Icon (Immediate Reachability) -->
+    <!-- [EDIT: HEADER WHATSAPP LINK & NUMBER] -->
     <a
-      href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20looking%20for%20Front%20Office%20roles."
+      href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20looking%20for%20Front%20Office%20roles%20in%20Pune."
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Connect on WhatsApp for Front Office roles"
+      aria-label="Connect on WhatsApp"
       title="Chat on WhatsApp"
       class="w-10 h-10 -mr-2 rounded-xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:bg-white/10 active:scale-95 transition"
     >
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
       </svg>
     </a>
+    <!-- [/EDIT] -->
   </header>
 
   <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
-  <div id="drawerBackdrop" class="fixed inset-0 bg-pin-dark/65 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
+  <div id="drawerBackdrop" class="fixed inset-0 bg-canvas-deep/75 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity duration-200"></div>
   <aside
     id="navDrawer"
     aria-hidden="true"
-    class="fixed top-0 left-0 bottom-0 w-72 bg-pin-dark text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl"
+    class="fixed top-0 left-0 bottom-0 w-72 bg-canvas-base text-white z-50 transform -translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between shadow-2xl border-r border-canvas-border"
   >
     <div>
-      <div class="h-14 px-5 flex items-center justify-between border-b border-white/10">
-        <span class="text-base font-extrabold tracking-wider text-white">FORJOB.IN</span>
+      <div class="h-14 px-5 flex items-center justify-between border-b border-canvas-border">
+        <!-- [EDIT: DRAWER BRAND TITLE] -->
+        <span class="font-display text-base font-extrabold tracking-[0.12em] text-white">FORJOB.IN</span>
+        <!-- [/EDIT] -->
         <button
           id="menuCloseBtn"
           type="button"
           aria-label="Close navigation menu"
           class="w-9 h-9 -mr-1.5 rounded-xl flex items-center justify-center text-sky-100 hover:text-white hover:bg-white/10 transition"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <nav class="p-4 space-y-1.5">
+      <!-- [EDIT: DRAWER NAVIGATION LINKS] -->
+      <nav class="p-4 space-y-1.5" aria-label="Primary pages">
         <a href="index.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
           Home
         </a>
         <a href="recruiter-hotlist.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
           <span>Recruiter Hotlist</span>
-          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-pin-royal/60 text-sky-100">Live</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-300/15 text-sky-200">Live</span>
         </a>
         <a href="for-employers.html" class="block px-3.5 py-2.5 rounded-xl text-sky-100 hover:text-white hover:bg-white/10 font-medium text-sm transition">
           For Employers
@@ -127,9 +155,11 @@
           Contact
         </a>
       </nav>
+      <!-- [/EDIT] -->
     </div>
 
-    <div class="p-4 border-t border-white/10 space-y-2.5">
+    <!-- [EDIT: DRAWER DIRECT CONNECT LINKS] -->
+    <div class="p-4 border-t border-canvas-border space-y-2.5">
       <p class="text-[11px] uppercase tracking-wider text-sky-200/70 font-semibold px-1">Direct Connect</p>
       <div class="grid grid-cols-2 gap-2">
         <a
@@ -144,142 +174,215 @@
           href="https://www.linkedin.com/in/hirebetterfaster"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-pin-navy hover:bg-pin-royal text-white text-xs font-semibold transition"
+          class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 border border-canvas-border text-white text-xs font-semibold transition"
         >
           LinkedIn
         </a>
       </div>
     </div>
+    <!-- [/EDIT] -->
   </aside>
 
-  <!-- ==================== 2 & 3. MAIN SPLIT WORKSPACE ==================== -->
-  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12">
+  <!-- ==================== 2 & 3. UNIFIED SINGLE-CANVAS WORKSPACE ==================== -->
+  <div class="flex-1 min-h-0 w-full flex flex-col lg:grid lg:grid-cols-12 bg-canvas-base">
 
-    <!-- ---------- LEFT / TOP: VERTICAL PHOTO BANNER ---------- -->
-    <section class="relative w-full lg:h-full lg:col-span-5 bg-pin-dark text-white px-5 py-5 lg:p-8 shrink-0 overflow-hidden flex flex-col justify-center">
+    <!-- ---------- LEFT / TOP: FRONT OFFICE VERTICAL PHOTO PANEL ---------- -->
+    <!-- [EDIT: FRONT OFFICE HERO IMAGE, HEADLINE & SUBCOPY] -->
+    <section class="relative w-full lg:h-full lg:col-span-5 bg-canvas-base overflow-hidden shrink-0 flex flex-col justify-center px-6 py-7 sm:py-9 lg:p-10 border-b lg:border-b-0 lg:border-r border-canvas-border">
       <img
         src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
         data-github-asset="assets/vertical-front-office.jpg"
-        alt="Modern corporate reception and front office space"
+        alt="Front office and administrative workspace in Pune"
         class="absolute inset-0 w-full h-full object-cover object-center"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-pin-dark/95 via-pin-dark/70 to-pin-dark/50"></div>
+      <div class="absolute inset-0 bg-canvas-base/72"></div>
 
-      <div class="relative z-10 flex items-center lg:items-start lg:flex-col gap-3.5 lg:gap-4 max-w-md">
-        <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-full icon-badge-3d shadow-badge flex items-center justify-center text-white shrink-0 border border-white/30">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
+      <div class="relative z-10 max-w-md">
+        <div class="flex items-center gap-3 mb-3">
+          <a href="index.html" class="inline-flex items-center gap-1 text-xs font-semibold text-sky-200 hover:text-white transition">
+            <span>← All Verticals</span>
+          </a>
+          <span class="text-white/25">•</span>
+          <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-200 bg-canvas-deep/75 border border-canvas-border px-2.5 py-0.5 rounded-full">
+            Pune Talent Marketing
+          </span>
         </div>
-        <div class="min-w-0 flex-1">
-          <div class="flex items-center justify-between lg:justify-start lg:gap-3 gap-2">
-            <span class="inline-block text-[10px] font-bold uppercase tracking-[0.16em] text-sky-200 bg-pin-dark/75 border border-sky-300/30 px-2.5 py-0.5 rounded-full">
-              Vertical Hub
-            </span>
-            <a href="index.html" class="text-xs font-bold text-sky-200 hover:text-white transition">← All Verticals</a>
-          </div>
-          <h1 class="text-xl lg:text-3xl font-extrabold tracking-tight leading-tight mt-1.5 text-readable">
-            Front Office &amp; Admin
-          </h1>
-          <p class="text-xs lg:text-sm text-sky-100 leading-relaxed mt-1.5 text-readable">
-            Direct profile representation for front desk, reception &amp; office ops—no endless job boards or dead portal links.
-          </p>
+
+        <h1 class="font-display text-white text-[clamp(1.5rem,2.8vw,2.25rem)] font-extrabold tracking-tight leading-tight text-crisp">
+          Front Office &amp; Admin
+        </h1>
+        <p class="text-slate-200 text-xs sm:text-sm mt-2 leading-relaxed text-crisp">
+          At ForJob.in, we actively market Front Office candidates in Pune directly to hiring teams—so your profile gets pitched instead of sitting in a job portal queue.
+        </p>
+
+        <!-- Front Office Role Tracks Covered -->
+        <div class="flex flex-wrap gap-1.5 mt-4">
+          <span class="text-[11px] font-medium text-sky-100 bg-canvas-deep/75 border border-canvas-border px-2.5 py-1 rounded-lg">Front Desk</span>
+          <span class="text-[11px] font-medium text-sky-100 bg-canvas-deep/75 border border-canvas-border px-2.5 py-1 rounded-lg">Receptionist</span>
+          <span class="text-[11px] font-medium text-sky-100 bg-canvas-deep/75 border border-canvas-border px-2.5 py-1 rounded-lg">Admin Coordinator</span>
+          <span class="text-[11px] font-medium text-sky-100 bg-canvas-deep/75 border border-canvas-border px-2.5 py-1 rounded-lg">Office Operations</span>
         </div>
       </div>
     </section>
+    <!-- [/EDIT] -->
 
-    <!-- ---------- RIGHT / BOTTOM: REPRESENTATION CARDS ---------- -->
-    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-pin-ice/35 px-4 py-4 sm:p-5 lg:p-6 overflow-y-auto flex flex-col justify-between gap-3">
+    <!-- ---------- RIGHT / BOTTOM: CANDIDATE MARKETING & DIRECT CONNECT HUB ---------- -->
+    <main class="flex-1 min-h-0 lg:h-full lg:col-span-7 bg-canvas-base px-5 py-6 sm:px-8 lg:px-12 overflow-y-auto flex flex-col justify-center">
+      <div class="w-full max-w-xl mx-auto space-y-5">
 
-      <!-- Card 1: Roles We Represent -->
-      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark mb-2">Front Office Tracks We Represent</h2>
-        <div class="flex flex-wrap gap-1.5 lg:gap-2">
-          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Front Desk</span>
-          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Receptionist</span>
-          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Admin Coordinator</span>
-          <span class="text-xs font-semibold bg-pin-ice text-pin-navy px-3 py-1 rounded-lg border border-pin-border">Office Operations</span>
+        <!-- [EDIT: CANDIDATE MARKETING CALLOUT & INSTRUCTIONS] -->
+        <div class="space-y-2">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-300">
+            Join Our Active Pune Front Office Hotlist
+          </p>
+          <h2 class="font-display text-white text-[clamp(1.2rem,2vw,1.6rem)] font-bold tracking-tight leading-snug">
+            We market Front Office candidates directly for Pune roles.
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Copy the text below and message me on LinkedIn—my LinkedIn is open and free for anyone to message—to join my active hotlist of Front Office candidates I am currently marketing to employers in Pune.
+          </p>
         </div>
-      </div>
+        <!-- [/EDIT] -->
 
-      <!-- Card 2: How Representation Works -->
-      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark mb-2.5">How It Works (Zero Forms)</h2>
-        <ol class="space-y-2 lg:grid lg:grid-cols-3 lg:gap-3.5 lg:space-y-0 text-xs text-slate-600">
-          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">1</span>
-            <span><strong class="text-slate-800">Send quick intro:</strong> Share your communication comfort, location, and experience.</span>
-          </li>
-          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">2</span>
-            <span><strong class="text-slate-800">Fit check:</strong> We align your profile with front desk and admin mandates.</span>
-          </li>
-          <li class="flex items-start gap-2.5 lg:flex-col lg:gap-1.5 bg-pin-ice/30 lg:p-2.5 rounded-xl">
-            <span class="w-5 h-5 rounded-full icon-badge-3d text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">3</span>
-            <span><strong class="text-slate-800">Direct pitch:</strong> Your profile is routed straight to active hiring teams.</span>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Card 3: Quick Intro Copy + Direct Connect -->
-      <div class="bg-white rounded-2xl border border-pin-border shadow-tile p-3.5 lg:p-4 space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xs font-extrabold uppercase tracking-wider text-pin-dark">Quick Message Template</h2>
-          <button
-            id="copyIntroBtn"
-            type="button"
-            class="text-[11px] font-bold text-pin-royal hover:text-pin-dark bg-pin-ice px-2.5 py-1 rounded-lg border border-pin-border transition active:scale-95"
-          >
-            Copy Text
-          </button>
-        </div>
-        <p id="introTemplateText" class="text-[11px] lg:text-xs text-slate-700 bg-pin-ice/55 border border-pin-border rounded-xl p-2.5 leading-relaxed">
-          Hi, I am looking for Front Office opportunities. Name: [Your Name], Role: [Front Desk / Reception / Admin], Experience: [Fresher / X yrs], Preferred Area: [Location].
-        </p>
-        <div class="grid grid-cols-2 gap-2.5 pt-0.5">
-          <a
-            href="https://wa.me/917057669890?text=Hi%2C%20I%20am%20looking%20for%20Front%20Office%20opportunities.%20Name%3A%20%2C%20Role%3A%20%2C%20Experience%3A%20%2C%20Area%3A%20"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm transition active:scale-[0.98]"
-          >
-            <span>Send on WhatsApp</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hirebetterfaster"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-pin-navy hover:bg-pin-royal text-white text-xs font-bold shadow-sm transition active:scale-[0.98]"
-          >
-            <span>Connect on LinkedIn</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4: Recruiter Hotlist Cross-Link -->
-      <a
-        href="recruiter-hotlist.html"
-        class="block bg-white rounded-2xl border border-pin-border shadow-tile hover:border-pin-royal p-3.5 lg:p-4 transition group"
-      >
-        <div class="flex items-center justify-between gap-2">
-          <div>
-            <p class="text-xs font-extrabold text-slate-800 group-hover:text-pin-navy transition">Browse Recruiter Hotlist</p>
-            <p class="text-[11px] text-slate-500 mt-0.5">Connect directly with active recruiters in our live directory.</p>
+        <!-- [EDIT: COPY-READY LINKEDIN MESSAGE BLOCK] -->
+        <div class="rounded-2xl bg-canvas-deep/80 border border-canvas-border p-4 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-sky-200/85">
+              Copy &amp; Send on LinkedIn
+            </span>
+            <button
+              id="copyIntroBtn"
+              type="button"
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-200 hover:text-white bg-white/10 hover:bg-white/15 border border-canvas-border px-3 py-1 rounded-lg transition active:scale-95"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span id="copyBtnLabel">Copy Text</span>
+            </button>
           </div>
-          <span class="text-pin-royal font-extrabold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
-        </div>
-      </a>
 
+          <p id="introTemplateText" class="text-xs sm:text-[13px] text-slate-100 bg-canvas-base/90 border border-canvas-border rounded-xl p-3 leading-relaxed select-all">
+            Hi Dinesh, I'd like to join your active Pune Front Office candidate hotlist. Name: [Your Name] | Role: [Front Desk / Reception / Admin / Office Ops] | Experience: [Fresher / X yrs] | Current Location: [Pune Area] | Notice Period: [Immediate / X days].
+          </p>
+
+          <div class="pt-0.5">
+            <a
+              href="https://www.linkedin.com/in/hirebetterfaster"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-sky-50 text-canvas-base font-bold text-xs sm:text-sm py-2.5 px-5 rounded-xl shadow-lg active:scale-[0.99] transition"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+              <span>Message Me on LinkedIn (Free &amp; Open)</span>
+            </a>
+          </div>
+        </div>
+        <!-- [/EDIT] -->
+
+        <!-- [EDIT: SOCIAL MEDIA ICONS (LINKEDIN, WHATSAPP, FACEBOOK, TELEGRAM)] -->
+        <div class="pt-1 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-200/75">
+              Connect &amp; Follow
+            </span>
+            <a href="recruiter-hotlist.html" class="text-[11px] font-semibold text-sky-300 hover:text-white transition">
+              View Live Hotlist →
+            </a>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/hirebetterfaster"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              class="social-pill w-11 h-11 rounded-full bg-white/10 border border-canvas-border flex items-center justify-center text-white"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/917057669890?text=Hi%20ForJob.in%2C%20I%20am%20a%20Front%20Office%20candidate%20in%20Pune."
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              title="WhatsApp"
+              class="social-pill w-11 h-11 rounded-full bg-white/10 border border-canvas-border flex items-center justify-center text-emerald-400"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+              </svg>
+            </a>
+
+            <!-- Facebook (Placeholder Link - Replace href when page is live) -->
+            <a
+              href="#facebook-placeholder"
+              aria-label="Facebook (Link coming soon)"
+              title="Facebook"
+              class="social-pill w-11 h-11 rounded-full bg-white/10 border border-canvas-border flex items-center justify-center text-sky-300"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+              </svg>
+            </a>
+
+            <!-- Telegram (Placeholder Link - Replace href when channel is live) -->
+            <a
+              href="#telegram-placeholder"
+              aria-label="Telegram (Link coming soon)"
+              title="Telegram"
+              class="social-pill w-11 h-11 rounded-full bg-white/10 border border-canvas-border flex items-center justify-center text-sky-300"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- [EDIT: PLACEHOLDER SEARCH JOBS CAPSULE BUTTON (INACTIVE UNTIL LIVE MANDATES ARRIVE)] -->
+          <div class="pt-1">
+            <button
+              id="searchJobsPlaceholderBtn"
+              type="button"
+              aria-disabled="true"
+              class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-3 px-4 py-2.5 rounded-full bg-white/[0.06] border border-canvas-border text-sky-200/75 hover:border-sky-300/40 text-xs font-medium transition cursor-pointer"
+            >
+              <span class="inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-sky-300/75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span>Search Front Office Jobs in Pune</span>
+              </span>
+              <span id="searchJobsBadge" class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-sky-200/80">
+                Opening Soon
+              </span>
+            </button>
+          </div>
+          <!-- [/EDIT] -->
+        </div>
+        <!-- [/EDIT] -->
+
+      </div>
     </main>
 
   </div>
 
-  <!-- ==================== 4. WALL-TO-WALL ULTRA-CLEAN FOOTER ==================== -->
-  <footer class="w-full bg-white border-t border-pin-border py-3 px-4 text-center shrink-0">
-    <p class="text-[11px] font-medium text-slate-400">
-      &copy; 2026 <a href="index.html" class="text-pin-navy hover:text-pin-dark font-semibold transition">ForJob.in</a>, Pune
+  <!-- ==================== 4. UNIFIED CANVAS FOOTER ==================== -->
+  <!-- [EDIT: FOOTER COPYRIGHT & HOMEPAGE LINK] -->
+  <footer class="w-full bg-canvas-base py-2.5 px-4 text-center shrink-0 border-t border-canvas-border/60">
+    <p class="text-[11px] font-medium text-sky-200/65">
+      &copy; 2026 <a href="index.html" class="text-sky-100 hover:text-white font-semibold transition">ForJob.in</a>, Pune
     </p>
   </footer>
+  <!-- [/EDIT] -->
 
   <script>
     (function () {
@@ -318,16 +421,31 @@
       });
 
       const copyBtn = document.getElementById('copyIntroBtn');
+      const copyBtnLabel = document.getElementById('copyBtnLabel');
       const templateText = document.getElementById('introTemplateText');
+
       copyBtn.addEventListener('click', () => {
         const text = templateText.textContent.trim();
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(() => {
-            copyBtn.textContent = 'Copied!';
-            setTimeout(() => { copyBtn.textContent = 'Copy Text'; }, 1800);
+            copyBtnLabel.textContent = 'Copied!';
+            setTimeout(() => {
+              copyBtnLabel.textContent = 'Copy Text';
+            }, 1800);
           });
         }
       });
+
+      const searchJobsBtn = document.getElementById('searchJobsPlaceholderBtn');
+      const searchJobsBadge = document.getElementById('searchJobsBadge');
+      if (searchJobsBtn && searchJobsBadge) {
+        searchJobsBtn.addEventListener('click', () => {
+          searchJobsBadge.textContent = 'Join Hotlist Above';
+          setTimeout(() => {
+            searchJobsBadge.textContent = 'Opening Soon';
+          }, 2200);
+        });
+      }
     })();
   </script>
 </body>
