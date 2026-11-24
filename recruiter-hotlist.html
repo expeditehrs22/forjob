@@ -513,10 +513,18 @@
         return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border whitespace-nowrap ${styleClass}">${escapeHtml(text)}</span>`;
       }
 
-      function renderRoleCapsule(role) {
-        const key = String(role || '').trim().toLowerCase();
-        const styleClass = ROLE_STYLES[key] || 'bg-sky-400/15 text-sky-200 border-sky-300/35';
-        return renderCapsule(role, styleClass);
+      function renderRoleCapsules(roleStr) {
+        const tags = String(roleStr || '')
+          .split(',')
+          .map((t) => t.trim())
+          .filter(Boolean);
+        if (!tags.length) return '<span class="text-slate-400 text-xs">—</span>';
+        return `<div class="flex flex-wrap gap-1.5">${tags.map((tag) => {
+          const key = tag.toLowerCase();
+          const styleClass = ROLE_STYLES[key] || 'bg-sky-400/15 text-sky-200 border-sky-300/35';
+          return renderCapsule(tag, styleClass);
+        }).join('')}</div>`;
+      }
       }
 
       function renderLevelCapsule(level) {
@@ -598,7 +606,17 @@
       function syncFilterOptions(rows) {
         populateSelect(filterLocation, rows.map((r) => r.location), 'All Locations');
         populateSelect(filterExperience, rows.map((r) => r.experience), 'All Experience', true);
-        populateSelect(filterRole, rows.map((r) => r.role), 'All Roles');
+
+        const roleTags = [];
+        rows.forEach((r) => {
+          String(r.role || '')
+            .split(',')
+            .map((t) => t.trim())
+            .filter(Boolean)
+            .forEach((t) => roleTags.push(t));
+        });
+        populateSelect(filterRole, roleTags, 'All Roles');
+
         populateSelect(filterLevel, rows.map((r) => r.level), 'All Levels');
 
         const industryTags = [];
@@ -628,10 +646,14 @@
         const filtered = allRows.filter((row) => {
           if (loc && row.location !== loc) return false;
           if (exp && row.experience !== exp) return false;
-          if (role && row.role !== role) return false;
+          if (role) {
+            const roleTags = String(row.role || '')
+              .split(',')
+              .map((t) => t.trim());
+            if (!roleTags.includes(role)) return false;
+          }
           if (level && row.level !== level) return false;
           if (notice && row.notice !== notice) return false;
-
           if (ind) {
             const tags = String(row.industry || '')
               .split(',')
@@ -675,7 +697,7 @@
             <td class="py-3.5 px-4 font-semibold text-white whitespace-nowrap">${escapeHtml(row.name)}</td>
             <td class="py-3.5 px-4 text-slate-200 whitespace-nowrap">${escapeHtml(row.location || '—')}</td>
             <td class="py-3.5 px-4 font-medium text-sky-100 whitespace-nowrap">${escapeHtml(row.experience || '—')}</td>
-            <td class="py-3.5 px-4">${row.role ? renderRoleCapsule(row.role) : '<span class="text-slate-400 text-xs">—</span>'}</td>
+            <td class="py-3.5 px-4">${row.role ? renderRoleCapsules(row.role) : '<span class="text-slate-400 text-xs">—</span>'}</td>
             <td class="py-3.5 px-4">${row.level ? renderLevelCapsule(row.level) : '<span class="text-slate-400 text-xs">—</span>'}</td>
             <td class="py-3.5 px-4">${renderIndustryCapsules(row.industry)}</td>
             <td class="py-3.5 px-4">${renderNoticeBadge(row.notice)}</td>
@@ -696,7 +718,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-1.5">
-              ${row.role ? renderRoleCapsule(row.role) : ''}
+              ${row.role ? renderRoleCapsules(row.role) : ''}
               ${row.level ? renderLevelCapsule(row.level) : ''}
             </div>
 
